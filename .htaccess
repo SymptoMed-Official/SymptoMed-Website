@@ -6,26 +6,15 @@ SetEnv CI_ENVIRONMENT development
 # Rewrite engine
 # ----------------------------------------------------------------------
 
-# Turning on the rewrite engine is necessary for the following rules and features.
-# FollowSymLinks must be enabled for this to work.
 <IfModule mod_rewrite.c>
 	Options +FollowSymlinks
 	RewriteEngine On
 
-	# If you installed CodeIgniter in a subfolder, you will need to
-	# change the following line to match the subfolder you need.
-	# http://httpd.apache.org/docs/current/mod/mod_rewrite.html#rewritebase
-	# RewriteBase /
-
-	# Redirect Trailing Slashes...
-	RewriteCond %{REQUEST_FILENAME} !-d
-    	RewriteRule ^(.*)/$ /$1 [L,R=301]
-
-	# Rewrite "www.example.com -> example.com"
-	# Redirect www.admin.symptomed.id to admin.symptomed.id
-    RewriteCond %{HTTPS} !=on
-    RewriteCond %{HTTP_HOST} ^www\.admin\.symptomed\.id$ [NC]
-    RewriteRule ^ http://admin.symptomed.id%{REQUEST_URI} [R=301,L]
+    # Redirect all traffic to https://admin.symptomed.id
+    RewriteCond %{HTTP_HOST} !^admin\.symptomed\.id$ [NC]
+    RewriteCond %{HTTPS} off [OR]
+    RewriteCond %{HTTP_HOST} !^admin\.symptomed\.id$
+    RewriteRule ^ https://admin.symptomed.id%{REQUEST_URI} [L,R=301]
 
 	# Checks to see if the user is attempting to access a valid file,
     # such as an image or css document, if this isn't true it sends the
@@ -40,11 +29,8 @@ SetEnv CI_ENVIRONMENT development
 </IfModule>
 
 <IfModule !mod_rewrite.c>
-    # If we don't have mod_rewrite installed, all 404's
-    # can be sent to index.php, and everything works as normal.
     ErrorDocument 404 index.php
 </IfModule>
 
-# Disable server signature start
-    ServerSignature Off
-# Disable server signature end
+# Disable server signature
+ServerSignature Off
