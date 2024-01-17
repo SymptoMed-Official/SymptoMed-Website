@@ -23,11 +23,11 @@ class App extends BaseConfig
      * environments.
      */
     // public $baseURL = 'https://jagowebdev.com/demo/admin-template-ci4/';
-	public $baseURL = 'https://www.admin.symptomed.id/';
+	public $baseURL = 'https://admin.symptomed.id/';
 	
 	public $imagesPath = ROOTPATH . 'public/images/';
 	// public $imagesURL = 'https://jagowebdev.com/demo/admin-template-ci4/public/images/';
-	public $imagesURL = 'https://www.admin.symptomed.id/public/images/';
+	public $imagesURL = 'https://admin.symptomed.id/public/images/';
 	
 	public $checkRoleAction = ['enable_global' => true, 'field' =>'id_user_input'];
 	
@@ -60,7 +60,7 @@ class App extends BaseConfig
      *      'http://accounts.example.com/':
      *          ['media.example.com', 'accounts.example.com']
      *
-     * @var string[]
+     * @var string['www.admin.symptomed.id']
      * @phpstan-var list<string>
      */
     public array $allowedHostnames = [];
@@ -74,7 +74,7 @@ class App extends BaseConfig
      * something else. If you are using mod_rewrite to remove the page set this
      * variable so that it is blank.
      */
-    public string $indexPage = 'index.php';
+    public string $indexPage = '/index.php';
 
     /**
      * --------------------------------------------------------------------------
