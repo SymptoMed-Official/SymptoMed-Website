@@ -22,12 +22,12 @@ class App extends BaseConfig
      * explicitly and never rely on auto-guessing, especially in production
      * environments.
      */
-    public $baseURL = 'https://admin.symptomed.id/';
-	// public $baseURL = 'https://www.admin.symptomed.id/';
+    // public $baseURL = 'https://jagowebdev.com/demo/admin-template-ci4/';
+	public $baseURL = 'https://admin.symptomed.id/';
 	
 	public $imagesPath = ROOTPATH . 'public/images/';
+	// public $imagesURL = 'https://jagowebdev.com/demo/admin-template-ci4/public/images/';
 	public $imagesURL = 'https://admin.symptomed.id/public/images/';
-	// public $imagesURL = 'https://www.admin.symptomed.id/public/images/';
 	
 	public $checkRoleAction = ['enable_global' => true, 'field' =>'id_user_input'];
 	

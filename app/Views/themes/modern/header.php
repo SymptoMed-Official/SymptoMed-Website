@@ -2,7 +2,7 @@
 /**
 *	App Name	: Admin Template Codeigniter 4
 *	Developed by: Agus Prawoto Hadi
-*	Website		: https://jagowebdev.com
+*	Website		: https://symptomed.id
 *	Year		: 2020-2022
 */
 

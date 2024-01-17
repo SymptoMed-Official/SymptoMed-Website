@@ -1,7 +1,7 @@
 <?php
 /**
 Helper format
-https://jagowebdev.com
+https://symptomed.id
 */
 
 function format_ribuan($value) {

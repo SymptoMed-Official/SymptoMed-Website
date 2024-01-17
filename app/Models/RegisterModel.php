@@ -2,7 +2,7 @@
 /**
 *	App Name	: Admin Template Codeigniter 4	
 *	Author		: Agus Prawoto Hadi
-*	Website		: https://symptomed.id
+*	Website		: https://jagowebdev.com
 *	Year		: 2020-2023
 */
 
@@ -202,7 +202,7 @@ class RegisterModel extends \App\Models\BaseModel
 		
 		$email_config = new \Config\EmailConfig;
 		$email_data = array('from_email' => $email_config->from
-						, 'from_title' => 'Jagowebdev'
+						, 'from_title' => 'SymptoMed'
 						, 'to_email' => $user['email']
 						, 'to_name' => $user['nama']
 						, 'email_subject' => 'Konfirmasi Registrasi Akun'

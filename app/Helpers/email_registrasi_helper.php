@@ -114,7 +114,7 @@ $config = new \Config\EmailConfig;
 		<img class="logo" alt="logo" src="cid:logo_text"/>
 	</div>
 	<h1>Link Aktivasi Akun</h1>
-	<p>Hi, {{NAME}}, Anda baru saja mendaftar di aplikasi PHP Admin SymptoMed. Untuk menyelesaikan proses pendaftaran, konfirmasi alamat email Anda dengan mengklik tombol berikut ini:</p>
+	<p>Hi, {{NAME}}, Anda baru saja mendaftar di aplikasi PHP Admin Template SymptoMed. Untuk menyelesaikan proses pendaftaran, konfirmasi alamat email Anda dengan mengklik tombol berikut ini:</p>
 	<p>
 		<a class="button" href="{{url}}" target="_blank" >
 		<span>Ya, konfirmasi alamat email saya</span></a>

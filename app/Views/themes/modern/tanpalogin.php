@@ -72,8 +72,8 @@
 			<div class="row mb-0">
 				<div class="col-sm-4 col-md-4 col-lg-4 col-xl-4 mb-2">
 					<h2 class="widget-title">Contact us</h2>
-					<ul class="list"><li><i class="fa fa-envelope me-2"></i>Email: support@SymptoMed.id</li>
-					<li><i class="fas fa-file-signature me-2"></i><a target="_blank" href="https://SymptoMed.id/members/contact">Via Contac form</a></li>
+					<ul class="list"><li><i class="fa fa-envelope me-2"></i>Email: support@symptomed.id</li>
+					<li><i class="fas fa-file-signature me-2"></i><a target="_blank" href="https://symptomed.id/members/contact">Via Contac form</a></li>
 					</ul>
 				</div>
 				<div class="col-sm-4 col-md-4 col-lg-4 col-xl-4 mb-2">
@@ -86,8 +86,8 @@
 				<div class="col-sm-4 col-md-4 col-lg-4 col-xl-4">
 					<h2 class="widget-title">More Info</h2>
 					<ul class="list">
-						<li><i class="fa fa-user-plus me-2"></i><a href="https://SymptoMed.id/members/membership" target="_blank">Premium Member</a></li>
-						<li><i class="fas fa-external-link-alt me-2"></i><a href="http://SymptoMed.id/artikel/" target="_blank">Artikel Blog</a></li>
+						<li><i class="fa fa-user-plus me-2"></i><a href="https://symptomed.id/members/membership" target="_blank">Premium Member</a></li>
+						<li><i class="fas fa-external-link-alt me-2"></i><a href="http://symptomed.id/artikel/" target="_blank">Artikel Blog</a></li>
 					</ul>
 				</div>
 			</div>
@@ -95,7 +95,7 @@
 		</div>
 		<div class="footer-menu-container">
 			<div class="wrapper clearfix">
-				<div class="nav-left">Copyright &copy; <?=date('Y')?> <a title="SymptoMed" href="https://SymptoMed.id">SymptoMed</a>
+				<div class="nav-left">Copyright &copy; <?=date('Y')?> <a title="SymptoMed" href="https://symptomed.id">SymptoMed</a>
 				</div>
 				<nav class="nav-right nav-footer">
 					<ul class=footer-menu>
