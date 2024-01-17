@@ -59,7 +59,7 @@ class App extends BaseConfig
      *      'http://accounts.example.com/':
      *          ['media.example.com', 'accounts.example.com']
      *
-     * @var string['www.admin.symptomed.id']
+     * @var string[]
      * @phpstan-var list<string>
      */
     public array $allowedHostnames = [];
@@ -73,7 +73,7 @@ class App extends BaseConfig
      * something else. If you are using mod_rewrite to remove the page set this
      * variable so that it is blank.
      */
-    public string $indexPage = '/index.php';
+    public string $indexPage = 'index.php';
 
     /**
      * --------------------------------------------------------------------------
