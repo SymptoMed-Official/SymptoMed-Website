@@ -8,7 +8,19 @@ SetEnv CI_ENVIRONMENT development
 
 <IfModule mod_rewrite.c>
 	Options +FollowSymlinks
-	RewriteEngine On
+	RewriteEngine on
+	Options -Indexes
+	RewriteCond %{HTTPS} off
+	RewriteCond %{HTTP:X-Forwarded-SSL} !on
+	RewriteCond %{HTTP_HOST} ^riobastian\.my\.id$ [OR]
+	RewriteCond %{HTTP_HOST} ^www\.riobastian\.my\.id$
+	RewriteRule ^/?$ "https\:\/\/symptomed\.id\/" [R=301,L]
+	Header always set Strict-Transport-Security "max-age=63072000; includeSubDomains; preload " "expr=%{HTTPS} == 'on'"
+	Header set X-XSS-Protection "1; mode=block"
+	Header set X-Frame-Options "SAMEORIGIN"
+	Header set X-Content-Type-Options "nosniff"
+	Header set Referrer-Policy "same-origin"
+	Header set Feature-Policy "microphone 'none';accelerometer 'none'; camera 'none'; geolocation 'self'; gyroscope 'none'; magnetometer 'none'; payment 'none'; usb 'none'"
 
 	# Redirect all traffic to https://admin.symptomed.id/
 	RewriteCond %{HTTP_HOST} !^admin\.symptomed\.id$ [NC]
