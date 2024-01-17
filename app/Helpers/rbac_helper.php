@@ -1,7 +1,7 @@
 <?php
 /**
 Helper format
-https://symptomed.id
+https://jagowebdev.com
 */
 
 function where_own($column = null) 

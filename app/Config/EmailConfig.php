@@ -8,8 +8,8 @@ class EmailConfig {
 	// public $provider = 'AmazonSES';
 
 	public $client = [	'standard' => [
-										'host' => 'mail.symptomed.id'
-										, 'username' => 'support@symptomed.id'
+										'host' => 'mail.jagowebdev.com'
+										, 'username' => 'support@jagowebdev.com'
 										, 'password' => 'Password'
 									]
 						,'google' => ['client_id' => ''
@@ -22,7 +22,7 @@ class EmailConfig {
 					];
 	
 	// Disesuaikan dengan konfigurasi username
-	public $from = 'support@symptomed.id';
-	public $fromTitle = 'symptomed.id';
-	public $emailSupport = 'support@symptomed.id';
+	public $from = 'support@jagowebdev.com';
+	public $fromTitle = 'Jagowebdev.com';
+	public $emailSupport = 'support@jagowebdev.com';
 }

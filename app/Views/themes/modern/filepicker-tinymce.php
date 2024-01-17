@@ -1,6 +1,6 @@
 <html lang="en" data-bs-theme="<?=$theme_mode?>">
 <head>
-<title>SymptoMed File Picker</title>
+<title>Jagowebdev File Picker</title>
 <meta name="descrition" content="Menu untuk memudahkan memilih file"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="shortcut icon" href="<?=$config->baseURL?>public/images/favicon.png?r=<?=time()?>" />

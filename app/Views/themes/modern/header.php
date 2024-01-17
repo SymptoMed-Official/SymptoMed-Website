@@ -2,7 +2,7 @@
 /**
 *	App Name	: Admin Template Codeigniter 4
 *	Developed by: Agus Prawoto Hadi
-*	Website		: https://symptomed.id
+*	Website		: https://jagowebdev.com
 *	Year		: 2020-2022
 */
 
@@ -106,7 +106,7 @@ $user = $_SESSION['user'];
 <body class="<?=@$_COOKIE['jwd_adm_mobile'] ? 'mobile-menu-show' : ''?>">
 	<header class="nav-header shadow">
 		<div class="nav-header-logo pull-left">
-			<a class="header-logo" href="<?=$config->baseURL?>" title="SymptoMed">
+			<a class="header-logo" href="<?=$config->baseURL?>" title="Jagowebdev">
 				<img src="<?=$config->baseURL . '/public/images/' . $settingAplikasi['logo_app']?>"/>
 			</a>
 		</div>

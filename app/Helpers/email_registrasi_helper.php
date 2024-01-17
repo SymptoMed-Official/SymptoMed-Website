@@ -94,7 +94,7 @@ $config = new \Config\EmailConfig;
 	</p>
 	<p>Jika ada pertanyaan mengenai email ini, silakan kontak:<br/>
 	<a href="mailto:'.$config->emailSupport.'" target="_blank">'.$config->emailSupport.'</a></p>
-	<p>Regards,<br/>SymptoMed Team</p>
+	<p>Regards,<br/>Jagowebdev Team</p>
 </div>
 </body>
 </html>
@@ -114,7 +114,7 @@ $config = new \Config\EmailConfig;
 		<img class="logo" alt="logo" src="cid:logo_text"/>
 	</div>
 	<h1>Link Aktivasi Akun</h1>
-	<p>Hi, {{NAME}}, Anda baru saja mendaftar di aplikasi PHP Admin Template SymptoMed. Untuk menyelesaikan proses pendaftaran, konfirmasi alamat email Anda dengan mengklik tombol berikut ini:</p>
+	<p>Hi, {{NAME}}, Anda baru saja mendaftar di aplikasi PHP Admin Template Jagowebdev. Untuk menyelesaikan proses pendaftaran, konfirmasi alamat email Anda dengan mengklik tombol berikut ini:</p>
 	<p>
 		<a class="button" href="{{url}}" target="_blank" >
 		<span>Ya, konfirmasi alamat email saya</span></a>
@@ -127,7 +127,7 @@ $config = new \Config\EmailConfig;
 	Jika Anda tidak merasa melakukan pendaftaran, mohon abaikan email ini.</p>
 	<p>Jika ada pertanyaan lebih lanjut mengenai email ini, silakan kontak kami di:<br/>
 	<a href="mailto:'.$config->emailSupport.'" target="_blank">'.$config->emailSupport.'</a></p>
-	<p>Regards,<br/>SymptoMed Team</p>
+	<p>Regards,<br/>Jagowebdev Team</p>
 </div>
 </body>
 </html>
@@ -161,7 +161,7 @@ function email_recovery_content()
 	</p>
 	<p>Jika ada pertanyaan mengenai email ini, silakan kontak:<br/>
 	<a href="mailto:'.$config->emailSupport.'" target="_blank">'.$config->emailSupport.'</a></p>
-	<p>Regards,<br/>SymptoMed Team</p>
+	<p>Regards,<br/>Jagowebdev Team</p>
 </div>
 </body>
 </html>';

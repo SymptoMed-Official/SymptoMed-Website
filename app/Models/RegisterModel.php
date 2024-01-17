@@ -166,7 +166,7 @@ class RegisterModel extends \App\Models\BaseModel
 					$message['message'] = 'Error: Link konfirmasi gagal dikirim... <strong>' . $send_email['message'] . '</strong>';
 					$error = true;
 				} else {
-					$message['message'] = 'Terima kasih telah melakukan registrasi, untuk memastikan bahwa kamu adalah pemilik alamat email <strong>' . $_POST['email'] . '</strong>, mohon klik link konfirmasi yang baru saja kami kirimkan ke alamat email tersebut<br/><br/>Biasanya, email akan sampai kurang dari satu menit, namun jika lebih dari lima menit email belum sampai, coba cek folder spam. Jika email benar benar tidak sampai, silakan hubungi kami di support@symptomed.id';
+					$message['message'] = 'Terima kasih telah melakukan registrasi, untuk memastikan bahwa kamu adalah pemilik alamat email <strong>' . $_POST['email'] . '</strong>, mohon klik link konfirmasi yang baru saja kami kirimkan ke alamat email tersebut<br/><br/>Biasanya, email akan sampai kurang dari satu menit, namun jika lebih dari lima menit email belum sampai, coba cek folder spam. Jika email benar benar tidak sampai, silakan hubungi kami di support@jagowebdev.com';
 				}
 			}
 		}
@@ -202,7 +202,7 @@ class RegisterModel extends \App\Models\BaseModel
 		
 		$email_config = new \Config\EmailConfig;
 		$email_data = array('from_email' => $email_config->from
-						, 'from_title' => 'SymptoMed'
+						, 'from_title' => 'Jagowebdev'
 						, 'to_email' => $user['email']
 						, 'to_name' => $user['nama']
 						, 'email_subject' => 'Konfirmasi Registrasi Akun'
