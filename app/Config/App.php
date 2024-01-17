@@ -23,11 +23,11 @@ class App extends BaseConfig
      * environments.
      */
     // public $baseURL = 'https://jagowebdev.com/demo/admin-template-ci4/';
-	public $baseURL = 'http://admin.symptomed.id/';
+	public $baseURL = 'https://www.admin.symptomed.id/';
 	
 	public $imagesPath = ROOTPATH . 'public/images/';
 	// public $imagesURL = 'https://jagowebdev.com/demo/admin-template-ci4/public/images/';
-	public $imagesURL = 'http://admin.symptomed.id/public/images/';
+	public $imagesURL = 'https://www.admin.symptomed.id/public/images/';
 	
 	public $checkRoleAction = ['enable_global' => true, 'field' =>'id_user_input'];
 	
@@ -63,7 +63,7 @@ class App extends BaseConfig
      * @var string[]
      * @phpstan-var list<string>
      */
-    public array $allowedHostnames = ['https://www.admin.symptomed.id', 'https://admin.symptomed.id', 'http://www.admin.symptomed.id', 'http://admin.symptomed.id', 'www.admin.symptomed.id', 'admin.symptomed.id'];
+    public array $allowedHostnames = [];
 
     /**
      * --------------------------------------------------------------------------
