@@ -12,8 +12,8 @@ SetEnv CI_ENVIRONMENT development
 	Options -Indexes
 	RewriteCond %{HTTPS} off
 	RewriteCond %{HTTP:X-Forwarded-SSL} !on
-	RewriteCond %{HTTP_HOST} ^riobastian\.my\.id$ [OR]
-	RewriteCond %{HTTP_HOST} ^www\.riobastian\.my\.id$
+	RewriteCond %{HTTP_HOST} ^symptomed\.id$ [OR]
+	RewriteCond %{HTTP_HOST} ^www\.symptomed\.id$
 	RewriteRule ^/?$ "https\:\/\/symptomed\.id\/" [R=301,L]
 	Header always set Strict-Transport-Security "max-age=63072000; includeSubDomains; preload " "expr=%{HTTPS} == 'on'"
 	Header set X-XSS-Protection "1; mode=block"
