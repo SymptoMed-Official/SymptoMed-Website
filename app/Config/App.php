@@ -22,12 +22,10 @@ class App extends BaseConfig
      * explicitly and never rely on auto-guessing, especially in production
      * environments.
      */
-    // public $baseURL = 'https://jagowebdev.com/demo/admin-template-ci4/';
-	public $baseURL = 'https://admin.symptomed.id/';
+	public $baseURL = '';
 	
 	public $imagesPath = ROOTPATH . 'public/images/';
-	// public $imagesURL = 'https://jagowebdev.com/demo/admin-template-ci4/public/images/';
-	public $imagesURL = 'https://admin.symptomed.id/public/images/';
+	public $imagesURL = '';
 	
 	public $checkRoleAction = ['enable_global' => true, 'field' =>'id_user_input'];
 	
@@ -74,7 +72,7 @@ class App extends BaseConfig
      * something else. If you are using mod_rewrite to remove the page set this
      * variable so that it is blank.
      */
-    public string $indexPage = 'index.php';
+    public string $indexPage = '';
 
     /**
      * --------------------------------------------------------------------------
