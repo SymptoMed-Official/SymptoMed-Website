@@ -32,10 +32,9 @@ class Database extends \CodeIgniter\Database\Config
 	public $default = [
 		'DSN'      => '',
 		'hostname' => 'localhost',
-		'username' => 'ucvlbocu',
-		'password' => 'cheatKebal',
-		// 'database' => 'pos_client3',
-		'database' => 'ucvlbocu_dashboard_admin',
+		'username' => '',
+		'password' => '',
+		'database' => '',
 		'DBDriver' => 'MySQLi',
 		'DBPrefix' => '',
 		'pConnect' => false,
