@@ -36,7 +36,7 @@ class Controller
      *
      * @var RequestInterface
      */
-    protected $request;
+    private $request;
 
     /**
      * Instance of the main response object.
