@@ -1,10 +1,4 @@
 <?php 
-/**
-*	App Name	: Admin Template Codeigniter 4
-*	Author		: Agus Prawoto Hadi
-*	Website		: https://jagowebdev.com
-*	Year		: 2020-2023
-*/
 
 namespace App\Controllers;
 
@@ -270,7 +264,7 @@ class BaseController extends Controller
 		exit;
 	}
 	
-	protected function view($file, $data = false, $file_only = false) 
+	protected function view($file, $data = [], $file_only = false) 
 	{
 		if (is_array($file)) {
 			foreach ($file as $file_item) {
@@ -419,7 +413,7 @@ class BaseController extends Controller
 		
 		if (!in_array($permission, $this->userPermission)) {
 			$response = service('response');
-			$response->setStatusCode(Response::HTTP_UNAUTHORIZED);
+			$response->setStatusCode(\CodeIgniter\HTTP\Response::HTTP_UNAUTHORIZED);
 			$response->setJSON(['status' => 'error', 'message' => 'Akses ditolak: Anda tidak memiliki permission ' . $permission]);
 			$response->setHeader('Content-type', 'application/json');
 			$response->noCache();
