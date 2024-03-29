@@ -1,6 +1,6 @@
 // Accordion
 const accordionButtons = document.querySelectorAll('.accordion__button');
-
+var base_url = window.location.origin;
 accordionButtons.forEach((button) => {
   button.addEventListener('click', () => {
     // toggle class active to accordion
@@ -10,9 +10,9 @@ accordionButtons.forEach((button) => {
 
     // toggle accordion button icon
     if (iconButton.src.includes('icon-expand.svg')) {
-      iconButton.src = './assets/icon-collapse.svg';
+      iconButton.src = base_url + '/public/home/assets/icon-collapse.svg';
     } else {
-      iconButton.src = './assets/icon-expand.svg';
+      iconButton.src = base_url + '/public/home/assets/icon-expand.svg';
     }
   });
 });
