@@ -502,4 +502,68 @@ class BaseController extends Controller
 		}
 		$this->view('error-data-notfound.php', $data);
 	}
+
+	protected function callApiPublic($data = [])
+    {
+        $url = $data['path']; 
+        $this->session->set('jwtToken', "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFyaXpraXB1dHJhckBnbWFpbC5jb20iLCJpYXQiOjE3MTE3MzUzNjV9.vdwy55SmTDiECPi_Agx2dwTcqOhMXpBf6KiIvVY4nZs");
+		$token = 'hjfgjg';
+		// $token = $this->session->get('jwtToken');
+        $options = [];
+
+        $client = \Config\Services::curlrequest();
+        $options['http_errors'] = false;
+        //$options['headers'] = ['Authorization' => 'Bearer ' . $token];
+
+        if (isset($data['form_params'])) {
+            $options['form_params'] = $data['form_params'];
+        }
+        if (isset($data['multipart'])) {
+            $options['multipart'] = $data['multipart'];
+        }
+
+        $response = $client->request($data['method'], $url, $options);
+        return $response;
+    }
+
+	protected function callApi($data = [])
+    {
+        $url = $data['path']; 
+        $this->session->set('jwtToken', "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFyaXpraXB1dHJhckBnbWFpbC5jb20iLCJpYXQiOjE3MTE3MzUzNjV9.vdwy55SmTDiECPi_Agx2dwTcqOhMXpBf6KiIvVY4nZs");
+		// $token = session('jwtToken');
+		$token = $this->session->get('jwtToken');
+        $options = [];
+
+        $client = \Config\Services::curlrequest();
+        $options['http_errors'] = false;
+        $options['headers'] = ['Authorization' => 'Bearer ' . $token];
+
+        if (isset($data['form_params'])) {
+            $options['form_params'] = $data['form_params'];
+        }
+        if (isset($data['multipart'])) {
+            $options['multipart'] = $data['multipart'];
+        }
+
+        $response = $client->request($data['method'], $url, $options);
+        return $response;
+    }
+
+    protected function setJwtToken()
+    {
+        $session = session();
+        $url = "https://symptomed-401211.et.r.appspot.com/auth/login";
+        $data = [
+            'email' => 'arizkiputrar@gmail.com',
+            'password' => 'arizki2020',
+			'fcmToken' => 'fcmToken'
+        ];
+        $ch = curl_init($url);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        $response = curl_exec($ch);
+		dd($response);
+        $session->set('jwtToken', json_decode($response)->token);
+        curl_close($ch);
+    }
 }
