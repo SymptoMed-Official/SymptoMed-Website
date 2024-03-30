@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Controllers;
+namespace App\Controllers\Home;
 
-class Home extends BaseController
+class Home extends \App\Controllers\BaseController
 {
 	protected $urlAPI, $urlAdminAPI, $urlDoctorAPI;
 	public function __construct()
