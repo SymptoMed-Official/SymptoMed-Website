@@ -360,8 +360,7 @@
             <div>
               <h3>Forum diskusi penyakit</h3>
               <p>
-                Berbagi pengalaman terkait penyakit yang dimiliki kepada
-                pengguna lain.
+                Berbagi pengalaman terkait penyakit yang dimiliki kepada pengguna lain.
               </p>
             </div>
           </article>
@@ -372,8 +371,7 @@
             <div>
               <h3>Pusat kesehatan cepat</h3>
               <p>
-                Akses kontak darurat atau temukan fasilitas kesehatan terdekat
-                segera.
+                Akses kontak darurat atau temukan fasilitas kesehatan terdekat segera.
               </p>
             </div>
           </article>
@@ -384,8 +382,7 @@
             <div>
               <h3>Penunjang kesehatan</h3>
               <p>
-                Hitung BMI, kalender menstruasi, dan berbagai layanan lain
-                yang bermanfaat.
+                Hitung BMI, kalender menstruasi, dan berbagai layanan lain yang bermanfaat.
               </p>
             </div>
           </article>
