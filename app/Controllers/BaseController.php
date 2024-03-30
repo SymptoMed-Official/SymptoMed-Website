@@ -28,6 +28,8 @@ class BaseController extends Controller
 	// protected $moduleRole;
 	protected $modulePermission;
 	protected $userPermission;
+	//API
+	protected $urlAPI, $urlAdminAPI, $urlDoctorAPI;
 	
 	/*
 	Alur:
@@ -51,6 +53,11 @@ class BaseController extends Controller
 		$this->config = new App;
 		$this->auth = new Auth;
 		$this->model = new BaseModel;
+		
+		//API URL
+		$this->urlAPI = getenv('url');
+		$this->urlAdminAPI = getenv('url_admin');
+		$this->urlDoctorAPI = getenv('url_doctor');
 		
 		// Autoload util helpers (app\Helpers\Autoload.php)
 		if ($this->config->csrf['enable']) {
@@ -506,15 +513,10 @@ class BaseController extends Controller
 	protected function callApiPublic($data = [])
     {
         $url = $data['path']; 
-        $this->session->set('jwtToken', "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFyaXpraXB1dHJhckBnbWFpbC5jb20iLCJpYXQiOjE3MTE3MzUzNjV9.vdwy55SmTDiECPi_Agx2dwTcqOhMXpBf6KiIvVY4nZs");
-		$token = 'hjfgjg';
-		// $token = $this->session->get('jwtToken');
         $options = [];
 
         $client = \Config\Services::curlrequest();
         $options['http_errors'] = false;
-        //$options['headers'] = ['Authorization' => 'Bearer ' . $token];
-
         if (isset($data['form_params'])) {
             $options['form_params'] = $data['form_params'];
         }
@@ -528,15 +530,13 @@ class BaseController extends Controller
 
 	protected function callApi($data = [])
     {
+		$this->setJwtToken();
         $url = $data['path']; 
-        $this->session->set('jwtToken', "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFyaXpraXB1dHJhckBnbWFpbC5jb20iLCJpYXQiOjE3MTE3MzUzNjV9.vdwy55SmTDiECPi_Agx2dwTcqOhMXpBf6KiIvVY4nZs");
-		// $token = session('jwtToken');
-		$token = $this->session->get('jwtToken');
         $options = [];
 
         $client = \Config\Services::curlrequest();
         $options['http_errors'] = false;
-        $options['headers'] = ['Authorization' => 'Bearer ' . $token];
+        $options['headers'] = ['Authorization' => 'Bearer ' . $this->session->get('jwtToken')];
 
         if (isset($data['form_params'])) {
             $options['form_params'] = $data['form_params'];
@@ -551,6 +551,7 @@ class BaseController extends Controller
 
     protected function setJwtToken()
     {
+		//Atur di login sebagai dokter atau admin untuk nentuin URL
         $session = session();
         $url = "https://symptomed-401211.et.r.appspot.com/auth/login";
         $data = [

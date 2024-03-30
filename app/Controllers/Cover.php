@@ -1,14 +1,11 @@
 <?php
 namespace App\Controllers;
 
-// use App\Models\CoverModel;
-
 class Cover extends BaseController
 {
     public function __construct()
     {
         parent::__construct();
-        // $this->model = new CoverModel;
     }
     
     public function index()
@@ -24,9 +21,9 @@ class Cover extends BaseController
     }
     public function post() 
     {   
-        $response = $this->callApiPublic([
+        $response = $this->callApi([
             'method' => 'POST', 
-            'path' => $this->urlAPI . '/cover', 
+            'path' => $this->urlAdminAPI . '/cover', 
             'form_params' => $_POST
         ])
         ->getBody();
