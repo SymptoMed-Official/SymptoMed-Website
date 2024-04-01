@@ -17,7 +17,7 @@ class Cover extends BaseController
         ])
         ->getBody();
         $this->data['api'] = json_decode($response, true);
-        return view('themes/modern/cover', $this->data);
+        $this->view('cover', $this->data);
     }
     public function post() 
     {   
@@ -28,6 +28,6 @@ class Cover extends BaseController
         ])
         ->getBody();
         $this->data['api'] = json_decode($response, true);
-        return view('themes/modern/cover', $this->data);
+        redirect()->to(base_url('cover'));
     }
 }
