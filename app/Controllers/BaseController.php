@@ -99,8 +99,8 @@ class BaseController extends Controller
 		$this->data['request'] = $this->request;
 		$this->data['isloggedin'] = $this->isLoggedIn;
 		$this->data['session'] = $this->session;
-		$this->data['site_title'] = 'Admin Template Codeigniter 4';
-		$this->data['site_desc'] = 'Admin Template Codeigniter 4 lengkap dengan berbagai fitur untuk memudahkan pengembangan aplikasi';
+		$this->data['site_title'] = 'SymptoMed, your personal healthcare solution!';
+		$this->data['site_desc'] = 'SymptoMed merupakan sebuah aplikasi mobile yang bertujuan untuk mendukung pelayanan kesehatan masyarakat Indonesia secara merata, mudah, mandiri serta akurat menggunakan pendekatan kecerdasan buatan (Artificial Intelligence/AI).';
 		$this->data['settingAplikasi'] = $this->model->getSettingAplikasi();
 		$this->data['user'] = [];
 		$this->data['auth'] = $this->auth;
