@@ -42,36 +42,31 @@ class Edukasi extends BaseController
 
 	public function index()
 	{
-		$message = [];
-
-		if (!empty($_POST['delete'])) {
-			$message = $this->model->deleteArtikel();
-		}
-
-		$artikel = $this->model->getAllArtikel($this->whereOwn());
-
+		//Get From API
+		$response = $this->callApiPublic([
+			'method' => 'GET',
+			'path' => $this->urlAPI . '/article?type=all',
+		])
+			->getBody();
+		$this->data['api'] = json_decode($response, true);
+		$artikel = $this->data['api']['data'];
 		if (!$artikel) {
 			$this->errorDataNotfound();
 			return;
 		}
 
-		foreach ($artikel as $val) {
-			$in[] = $val['id_artikel'];
-			$in_mask[] = '?';
+		$message = [];
+		$message['status'] = 'ok';
+		$message['message'] = $this->data['api']['message'];
+		$messageDelete = [];
+		if (!empty($_POST['delete'])) {
+			$messageDelete = $this->model->deleteArtikel();
 		}
-
-		// Artikel Author
-		$artikel_author = $this->model->getArtikelAuthor($in_mask, $in);
-
-		// Kategori
-		$artikel_kategori = $this->model->getArtikelKategori($in_mask, $in);
-
 		$this->data['title'] = 'Edit Media Edukasi';
 		$this->data['artikel'] = $artikel;
-		$this->data['artikel_kategori'] = $artikel_kategori;
-		$this->data['artikel_author'] = $artikel_author;
 		$this->data['message'] = $message;
-
+		$this->data['messageDelete'] = $messageDelete;
+		// dd($this->data);
 		$this->view('edukasi-result.php', $this->data);
 	}
 

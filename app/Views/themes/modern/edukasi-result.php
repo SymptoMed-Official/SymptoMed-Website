@@ -4,17 +4,21 @@
 	</div>
 	<div class="card-body">
 		<?php
+		if (!empty($messageDelete)) {
+			show_alert($messageDelete);
+		}
 		if (!empty($message)) {
-			show_alert($message);
-		} ?>
+			show_message($message);
+		}  ?>
 		<a href="<?= $config->baseURL ?>edukasi/add" class="btn btn-success btn-xs"><i class="fas fa-plus pe-1"></i> Tambah Data</a>
 		<hr />
-		<table class="table table-striped table-bordered table-hover nowrap" id="artikel-table">
+		<table class="table table-striped table-bordered table-hover" id="artikel-table">
 			<thead>
 				<tr>
 					<th>No</th>
 					<th>Judul</th>
 					<th>Topik</th>
+					<th>Tipe</th>
 					<th>Penulis</th>
 					<th>Tanggal</th>
 					<th>Aksi</th>
@@ -24,25 +28,22 @@
 				<?php
 				helper('html');
 				$no = 1;
-
-				if (!$artikel_kategori)
-					$artikel_kategori = [];
-
-				if (!$artikel_author)
-					$artikel_author = [];
-
 				foreach ($artikel as $val) {
-					$kategori = key_exists($val['id_artikel'], $artikel_kategori) ? join(', ', $artikel_kategori[$val['id_artikel']]) : '';
-					$author = key_exists($val['id_artikel'], $artikel_author) ? join(', ', $artikel_author[$val['id_artikel']]) : '';
+					if (!$val['type']) {
+						$type = 'Artikel';
+					} else {
+						$type = 'SymptomPedia';
+					}
 					echo '<tr>
 					<td>' . $no++ . '</td>
-					<td>' . $val['judul_artikel'] . '</td>
-					<td>' . $kategori . '</td>
-					<td>' . $author . '</td>
-					<td>' . $val['tgl_terbit'] . '</td>
+					<td>' . $val['title'] . '</td>
+					<td>' . $val['topic'] . '</td>
+					<td>' . $type . '</td>
+					<td>' . $val['writer'] . '</td>
+					<td>' . format_date($val['date']) . '</td>
 					<td>' . btn_action([
-						'edit' => ['url' => $config->baseURL . 'edukasi/edit?id=' . $val['id_artikel']], 'delete' => [
-							'url' => '', 'id' =>  $val['id_artikel'], 'delete-title' => 'Hapus data artikel: <strong>' . $val['judul_artikel'] . '</strong> ?'
+						'edit' => ['url' => $config->baseURL . 'edukasi/edit?id=' . $val['id']], 'delete' => [
+							'url' => '', 'id' =>  $val['id'], 'delete-title' => 'Hapus data artikel: <strong>' . $val['title'] . '</strong> ?'
 						]
 					]) .
 						'</td>
@@ -60,7 +61,7 @@
 						"targets": 0
 					}],
 					"order": [
-						[4, 'desc']
+						[5, 'desc']
 					]
 				}).on('order.dt search.dt', function() {
 					let i = 1;
