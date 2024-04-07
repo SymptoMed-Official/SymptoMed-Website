@@ -16,7 +16,7 @@
 
     <form action="post" method="post" enctype="multipart/form-data">
       <input type="file" id="cover" name="cover" accept="image/png, image/jpeg">
-      <button type="submit" class="btn btn-primary"></button>
+      <button type="submit" class="btn btn-primary">submit</button>
     </form>
 
     <script>
