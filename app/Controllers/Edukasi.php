@@ -46,21 +46,35 @@ class Edukasi extends BaseController
 		$response = $this->callApiPublic([
 			'method' => 'GET',
 			'path' => $this->urlAPI . '/article?type=all',
-		])
-			->getBody();
-		$this->data['api'] = json_decode($response, true);
-		$artikel = $this->data['api']['data'];
-		if (!$artikel) {
+		]);
+		$this->data['api'] = json_decode($response->getBody(), true);
+		if ($response->getStatusCode() != 200) {
 			$this->errorDataNotfound();
 			return;
 		}
+		$artikel = $this->data['api']['data'];
 
 		$message = [];
+		$messageDelete = [];
 		$message['status'] = 'ok';
 		$message['message'] = $this->data['api']['message'];
-		$messageDelete = [];
 		if (!empty($_POST['delete'])) {
-			$messageDelete = $this->model->deleteArtikel();
+			// Delete from API
+			$response = $this->callApi([
+				'method' => 'DELETE',
+				'path' => $this->urlAdminAPI . '/article/delete' . $_POST['delete'],
+			]);
+			$body = $response->getBody();
+			$statusCode = $response->getStatusCode();
+			$this->data['api'] = json_decode($body, true);
+
+			if ($statusCode == 200) {
+				$messageDelete['status'] = 'ok';
+				$messageDelete['message'] = $this->data['api']['message'];
+			} else {
+				$messageDelete['status'] = 'error';
+				$messageDelete['message'] = $this->data['api']['message'];
+			}
 		}
 		$this->data['title'] = 'Edit Media Edukasi';
 		$this->data['artikel'] = $artikel;
@@ -68,6 +82,44 @@ class Edukasi extends BaseController
 		$this->data['messageDelete'] = $messageDelete;
 		// dd($this->data);
 		$this->view('edukasi-result.php', $this->data);
+	}
+
+	public function edit()
+	{
+		$this->data['title'] = 'Edit Media Edukasi';
+		if (empty($_GET['id'])) {
+			$this->errorDataNotFound();
+			return;
+		}
+
+		$message = [];
+		//Update To API
+		if (!empty($_POST['submit'])) {
+			$response = $this->callApi([
+				'method' => 'PATCH',
+				'path' => $this->urlAdminAPI . '/article/update?id=' . $_GET['id'],
+				'postdata' => $_POST
+			]);
+			$body = $response->getBody();
+			$statusCode = $response->getStatusCode();
+			$this->data['api'] = json_decode($body, true);
+			$message = $this->data['api']['message'];
+		}
+
+		//Get From API By ID
+		$response = $this->callApiPublic([
+			'method' => 'GET',
+			'path' => $this->urlAPI . '/article?id=' . $_GET['id'],
+		]);
+		$this->data['api'] = json_decode($response->getBody(), true);
+		if ($response->getStatusCode() != 200) {
+			$this->errorDataNotfound();
+			return;
+		}
+		$this->data = array_merge($this->data, $this->data['api']['data']);
+		$this->data['message'] = $message;
+		// dd($this->data);
+		$this->view('edukasi-form.php', $this->data);
 	}
 
 	public function add()
@@ -92,36 +144,6 @@ class Edukasi extends BaseController
 			foreach ($artikel as $key => $val) {
 				$data[$key] = $val;
 			}
-		}
-
-		$this->data = array_merge($this->data, $set_data);
-		$this->data['message'] = $message;
-
-		$this->view('edukasi-form.php', $this->data);
-	}
-
-	public function edit()
-	{
-		$this->data['title'] = 'Edit Media Edukasi';
-		if (empty($_GET['id'])) {
-			$this->errorDataNotFound();
-			return;
-		}
-
-		$message = [];
-		if (!empty($_POST['submit'])) {
-			$save = $this->model->saveData();
-			$message = $save['message'];
-		}
-
-		$set_data = $this->model->setData($_GET['id'], $this->whereOwn());
-		if (!$set_data['artikel']) {
-			$this->errorDataNotFound();
-			return;
-		}
-
-		foreach ($set_data['artikel'] as $key => $val) {
-			$this->data[$key] = $val;
 		}
 
 		$this->data = array_merge($this->data, $set_data);

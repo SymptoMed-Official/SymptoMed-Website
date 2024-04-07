@@ -1,3 +1,8 @@
+<?php
+//STATIS DATA
+$ref_kategori = [];
+$ref_author = [];
+?>
 <div class="card">
 	<div class="card-header">
 		<h5 class="card-title"><?= $title ?></h5>
@@ -14,15 +19,15 @@
 				<div class="col-md-9">
 					<div class="mb-3">
 						<label class="control-label mb-2">Title</label>
-						<input class="form-control" type="text" name="judul_artikel" value="<?= set_value('judul_artikel', @$judul_artikel) ?>" placeholder="Judul Artikel" required />
+						<input class="form-control" type="text" name="title" value="<?= set_value('title', @$title) ?>" placeholder="Judul Media Edukasi" required />
 					</div>
 					<div class="mb-3">
 						<label class="control-label mb-2">Slug</label>
-						<input class="form-control" type="text" name="slug" value="<?= set_value('slug', @$slug) ?>" placeholder="Slug" required />
+						<input class="form-control" type="text" name="slug" value="<?= set_value('slug', @$slug) ?>" placeholder="Permalink untuk media edukasi" required />
 					</div>
 					<div class="mb-3">
 						<label class="control-label mb-2">Content</label>
-						<textarea class="form-control tinymce" rows="30" type="text" name="konten"><?= set_value('konten', @$konten) ?></textarea>
+						<textarea class="form-control tinymce" rows="30" type="text" name="konten"><?= set_value('content', @$content) ?></textarea>
 					</div>
 					<div class="mb-3">
 						<label class="control-label mb-2">Reference</label>
@@ -32,26 +37,12 @@
 				<div class="col-md-3">
 					<div class="mb-3">
 						<label class="control-label mb-2">Summary</label>
-						<textarea class="form-control overlayscollbar" rows="5" type="text" name="meta_description"><?= set_value('meta_description', @$meta_description) ?></textarea>
+						<textarea class="form-control overlayscollbar" rows="5" type="text" name="meta_description"><?= set_value('summary', @$summary) ?></textarea>
 					</div>
 					<div class="mb-3">
 						<label class="control-label mb-2">Preview</label>
-						<textarea class="form-control overlayscollbar" rows="5" type="text" name="excerp"><?= set_value('excerp', @$excerp) ?></textarea>
+						<textarea class="form-control overlayscollbar" rows="5" type="text" name="excerp"><?= set_value('preview', @$preview) ?></textarea>
 					</div>
-					<!-- <div class="mb-3">
-						<label class="control-label mb-2">Search Engine Index</label>
-						<div>
-							<?php
-							echo options(
-								[
-									'class' => 'form-control', 'name' => 'search_engine_index', 'required' => 'required'
-								],
-								['Y' => 'Ya', 'N' => 'Tidak'],
-								set_value('search_engine_index', @$search_engine_index)
-							);
-							?>
-						</div>
-					</div> -->
 					<div class="mb-3">
 						<label class="control-label mb-2">Topic</label>
 						<div>
@@ -108,26 +99,35 @@
 					<div class="mb-3">
 						<label class="control-label mb-2">Type</label>
 						<!-- pastikan value untuk API -->
-						<div>
-							<select class="form-control form-select" name="type" required>
-								<option class="form-control" name="type" value="artikel">Artikel</option>
-								<option class="form-control" name="type" value="artikel">SymptomPedia</option>
-							</select>
-						</div>
-					</div>
-					<!-- <div class="mb-3">
-						<label class="control-label mb-2">Tgl. Terbit</label>
 						<?php
-						if (!empty($tgl_terbit)) {
-							if ($tgl_terbit == '0000-00-00 00:00:00') {
-								$tgl_terbit = date('Y-m-d H:i');
+						if (!empty($type)) {
+							if ($type) { //true => artikel
+								$type = 'artikel';
 							} else {
-								$tgl_terbit = date('Y-m-d H:i', strtotime($tgl_terbit));
+								$type = 'symptomedia';
 							}
 						}
 						?>
-						<input class="form-control flatpickr" type="text" name="tgl_terbit" value="<?= set_value('tgl_terbit', @$tgl_terbit) ?>" placeholder="Tgl. Terbit" required />
-					</div> -->
+						<div>
+							<select class="form-control form-select" name="type" required>
+								<option class="form-control" name="type" value="artikel">Artikel</option>
+								<option class="form-control" name="type" value="symptomedia">SymptomPedia</option>
+							</select>
+						</div>
+					</div>
+					<div class="mb-3">
+						<label class="control-label mb-2">Tgl. Terbit</label>
+						<?php
+						if (!empty($date)) {
+							if ($date == '0000-00-00 00:00:00') {
+								$date = date('Y-m-d H:i');
+							} else {
+								$date = date('Y-m-d H:i', strtotime($date));
+							}
+						}
+						?>
+						<input class="form-control flatpickr" type="text" name="tgl_terbit" value="<?= set_value('date', @$date) ?>" placeholder="Tgl. Terbit" required />
+					</div>
 					<div class="mb-3">
 						<label class="control-label mb-2">Image</label>
 						<div class="feature-image">
@@ -172,9 +172,9 @@
 			</div>
 			<div class="row mb-3">
 				<div class="col-sm-12">
-					<button type="submit" name="submit" id="btn-submit" value="produk" class="btn btn-primary">Simpan</button>
-					<input type="hidden" name="id" value="<?= $id_artikel ?>" />
-					<input type="hidden" name="tab" value="produk" />
+					<button type="submit" name="submit" id="btn-submit" value="" class="btn btn-primary">Simpan</button>
+					<input type="hidden" name="id" value="<?= $id ?>" />
+					<input type="hidden" name="tab" value="" />
 				</div>
 			</div>
 		</form>
