@@ -40,7 +40,7 @@
 					<td>' . $val['topic'] . '</td>
 					<td>' . $type . '</td>
 					<td>' . $val['writer'] . '</td>
-					<td>' . format_date($val['date']) . '</td>
+					<td style="white-space: nowrap;">' . $val['date'] . '</td>
 					<td>' . btn_action([
 						'edit' => ['url' => $config->baseURL . 'edukasi/edit?id=' . $val['id']], 'delete' => [
 							'url' => '', 'id' =>  $val['id'], 'delete-title' => 'Hapus data artikel: <strong>' . $val['title'] . '</strong> ?'
