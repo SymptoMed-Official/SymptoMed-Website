@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Controllers;
 
 class Cover extends BaseController
@@ -7,7 +8,7 @@ class Cover extends BaseController
     {
         parent::__construct();
     }
-    
+
     public function index()
     {
         //GET From API
@@ -15,19 +16,20 @@ class Cover extends BaseController
             'method' => 'GET',
             'path' => $this->urlAPI . '/cover',
         ])
-        ->getBody();
+            ->getBody();
         $this->data['api'] = json_decode($response, true);
         $this->view('cover', $this->data);
     }
-    public function post() 
-    {   
+    public function post()
+    {
         $response = $this->callApi([
-            'method' => 'POST', 
-            'path' => $this->urlAdminAPI . '/cover', 
+            'method' => 'POST',
+            'path' => $this->urlAdminAPI . '/cover',
             'form_params' => $_POST
         ])
-        ->getBody();
+            ->getBody();
         $this->data['api'] = json_decode($response, true);
-        redirect()->to(base_url('cover'));
+        $this->data['message'] = $this->data['api']['message'];
+        $this->view('cover', $this->data);
     }
 }
