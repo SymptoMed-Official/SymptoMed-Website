@@ -31,6 +31,7 @@
             <li><a href="#" class="header__link" onclick="showAlert()">Penunjang kesehatan</a></li>
             <li><a href="#" class="header__link" onclick="showAlert()">Forum diskusi</a></li>
             <li><a href="#" class="header__link" onclick="showAlert()">Media edukasi</a></li>
+            <li><a class="header__link" href="Contributor.php" >Kontributor</a></li>
             <li>
               <a href="https://play.google.com/store/apps/details?id=com.symptomed.symptomed" class="header__play-store">
                 <img src="<?= base_url() ?>/public/home/assets/cta-google-play-color.svg" alt="Google Play" />
@@ -431,7 +432,7 @@
             </button>
           </div>
           <div class="team__staffs">
-            <!-- Team staff 1 -->
+            <!-- Core 1 -->
             <div class="team__staff active">
               <div class="team__staff-info">
                 <span>CEO & ML RESEARCHER</span>
@@ -440,16 +441,16 @@
               <img src="<?= base_url() ?>/public/home/assets/Rio.png" alt="Rio Bastian" />
             </div>
 
-            <!-- Team staff 2 -->
+            <!-- Core 2 -->
             <div class="team__staff">
               <div class="team__staff-info">
-                <span>COO & ML RESEARCHER</span>
-                <p>Anugrah Cahya Kautsar</p>
+                <span>CTO &amp; Back-End Engineer</span>
+                <p>Arizki Putra Rahman</p>
               </div>
-              <img src="<?= base_url() ?>/public/home/assets/Anu.png" alt="Anugrah Cahya Kautsar" />
+              <img src="<?= base_url() ?>/public/home/assets/Arizkinobg.png" alt="Arizky Putra Rahman" />
             </div>
 
-            <!-- Team staff 3 -->
+            <!-- Core 3 -->
             <div class="team__staff">
               <div class="team__staff-info">
                 <span>CTO & ML RESEARCHER</span>
@@ -458,28 +459,28 @@
               <img src="<?= base_url() ?>/public/home/assets/Fauzan.png" alt="Fauzan Nauvally Rizky Muhamad" />
             </div>
 
-            <!-- Team staff 4 -->
+            <!-- Core 4 -->
             <div class="team__staff">
               <div class="team__staff-info">
-                <span>CLO & MOBILE DEVELOPER</span>
+                <span>CLO &amp; MOBILE DEVELOPER</span>
                 <p>Arizona Adi Pradana</p>
               </div>
               <img src="<?= base_url() ?>/public/home/assets/Ari.png" alt="Arizona Adi Pradana" />
             </div>
 
-            <!-- Team staff 5 -->
+            <!-- Core 5 -->
             <div class="team__staff">
               <div class="team__staff-info">
-                <span>CMO & CLOUD COMPUTING</span>
+                <span>CCO &amp; Web Developer</span>
                 <p>Ilmi Fatha Nur Ihsan</p>
               </div>
               <img src="<?= base_url() ?>/public/home/assets/Ilmi.png" alt="Ilmi Fatha Nur Ihsan" />
             </div>
 
-            <!-- Team staff 6 -->
+            <!-- Core 6 -->
             <div class="team__staff">
               <div class="team__staff-info">
-                <span>CFO & CLOUD COMPUTING</span>
+                <span>CFO &amp; Web Developer</span>
                 <p>Jhonson Saputra</p>
               </div>
               <img src="<?= base_url() ?>/public/home/assets/Joni.png" alt="Jhonson Saputra" />
@@ -488,152 +489,54 @@
         </div>
 
         <div class="people team__doctors">
-          <!-- Team doctor 1 -->
-          <div class="people__person">
-            <img src="<?= base_url() ?>/public/home/assets/arizki.png" alt="Arizki Putra Rahman" />
-            <div class="people__person-info">
-              <h3>Arizki Putra Rahman</h3>
-              <span>Back-End Engineer</span>
-            </div>
-          </div>
 
-          <!-- Team doctor 2 -->
+          <!-- CC1  -->
           <div class="people__person">
             <img src="<?= base_url() ?>/public/home/assets/alip.png" alt="Alif Maulidanar" />
             <div class="people__person-info">
               <h3>Alif Maulidanar</h3>
-              <span>Back-End Engineer</span>
+              <span>Dev Ops & Back-End Engineer</span>
             </div>
           </div>
 
-          <!-- Team doctor 3 -->
+          <!-- CC2 -->
           <div class="people__person">
             <img src="<?= base_url() ?>/public/home/assets/rama.png" alt="Ramadhana Noor" />
             <div class="people__person-info">
               <h3>Ramadhana Noor S.W.</h3>
-              <span>ML Researcher</span>
+              <span>ML Researcher & Software Developer</span>
             </div>
           </div>
 
-          <!-- Team doctor 4 -->
+          <!-- MD1 -->
           <div class="people__person">
             <img src="<?= base_url() ?>/public/home/assets/fariz.png" alt="Fariz Hustha" />
             <div class="people__person-info">
               <h3>Fariz Hustha</h3>
-              <span>Mobile Developer</span>
+              <span>Lead Mobile Developer</span>
             </div>
           </div>
 
-          <!-- Team doctor 5 -->
-          <div class="people__person">
-            <img src="<?= base_url() ?>/public/home/assets/bintang.png" alt="M.Bintang Khadafi" />
-            <div class="people__person-info">
-              <h3>M. Bintang Khadafi</h3>
-              <span>Mobile Developer</span>
-            </div>
-          </div>
-
-
-          <!-- Team doctor 6 -->
-          <div class="people__person">
-            <img src="<?= base_url() ?>/public/home/assets/pincen.png" alt="Vinsensius Adrian" />
-            <div class="people__person-info">
-              <h3>Vinsensius Adrian</h3>
-              <span>Mobile Developer</span>
-            </div>
-          </div>
-
-          <!-- Team doctor 7 -->
+          <!-- MM1 -->
           <div class="people__person">
             <img src="<?= base_url() ?>/public/home/assets/Nadia.png" alt="Nadia Sahda C." />
             <div class="people__person-info">
               <h3>Nadia Sahda C.</h3>
-              <span>Marketing & Social Media</span>
+              <span>Graphic Designer & Lead Multimedia</span>
             </div>
           </div>
 
-          <!-- Team doctor 8 -->
+
+          <!-- MM2 -->
           <div class="people__person">
-            <img src="<?= base_url() ?>/public/home/assets/nisa.png" alt="Nisa Ulayya M." />
+            <img src="<?= base_url() ?>/public/home/assets/lala.png" alt="Nabila Adristi P." />
             <div class="people__person-info">
-              <h3>Nisa Ulayya M.</h3>
-              <span>Marketing & Social Media</span>
-            </div>
-          </div>
-
-          <!-- Team doctor 9 -->
-          <div class="people__person">
-            <img src="<?= base_url() ?>/public/home/assets/nurul.png" alt="Nurul Salsabila" />
-            <div class="people__person-info">
-              <h3>Nurul Salsabila</h3>
-              <span>Marketing & Social Media</span>
-            </div>
-          </div>
-
-          <!-- Team doctor 10 -->
-          <div class="people__person">
-            <img src="<?= base_url() ?>/public/home/assets/tasya.png" alt="Tasya Puspita A." />
-            <div class="people__person-info">
-              <h3>Tasya Puspa A.</h3>
-              <span>Marketing & Social Media</span>
+              <h3>Nabila Adristi P.</h3>
+              <span>Content Writter & Multimedia</span>
             </div>
           </div>
 
 
-        </div>
-      </div>
-    </section>
-
-    <!-- SUPPORTED BY -->
-    <section class="supportedBy">
-      <div class="container supportedBy__container">
-        <h2 id="Partner">SymptoMed juga didukung oleh...</h2>
-
-        <div class="people supportedBy__supporters">
-          <!-- Supporter 1 -->
-          <div class="people__person">
-            <img src="<?= base_url() ?>/public/home/assets/pak_guntur.png" alt="Guntur Eka Saputra" />
-            <div class="people__person-info">
-              <h3>Guntur Eka Saputra</h3>
-              <span>Dosen Advisor</span>
-            </div>
-          </div>
-
-          <!-- Supporter 2 -->
-          <div class="people__person">
-            <img src="<?= base_url() ?>/public/home/assets/kak_ara.png" alt="Mutiara Arumsari" />
-            <div class="people__person-info">
-              <h3>Mutiara Arumasri</h3>
-              <span>Mentor & Advisor Bangkit</span>
-            </div>
-          </div>
-
-          <!-- Supporter 3 -->
-          <div class="people__person">
-            <img src="<?= base_url() ?>/public/home/assets/dr_evi.png" alt="Evi Maryam" />
-            <div class="people__person-info">
-              <h3>Evi Maryam</h3>
-              <span>Health Advisor</span>
-            </div>
-          </div>
-
-          <!-- Supporter 4 -->
-          <div class="people__person">
-            <img src="<?= base_url() ?>/public/home/assets/bu_dinik.png" alt="Dinik Fitri R.P." />
-            <div class="people__person-info">
-              <h3>Dinik Fitri Rahajeng P.</h3>
-              <span>Business Advisor</span>
-            </div>
-          </div>
-
-          <!-- Supporter 5 -->
-          <div class="people__person">
-            <img src="<?= base_url() ?>/public/home/assets/pak_kevin.png" alt="Niki Zefanya" />
-            <div class="people__person-info">
-              <h3>Kevin Filmawan</h3>
-              <span>Tech Advisor</span>
-            </div>
-          </div>
         </div>
       </div>
     </section>
@@ -705,13 +608,11 @@
         <div class="footer__links-group">
           <h5>Dukungan</h5>
           <ul>
-            <li><a href="#" class="footer__link">Pusat bantuan</a></li>
-            <li><a href="#" class="footer__link">Syarat dan ketentuan</a></li>
-            <li>
-              <a href="#" class="footer__link">Pemberitahuan privasi</a>
-            </li>
-            <li><a href="#" class="footer__link">Atribusi data</a></li>
-            <li><a href="#" class="footer__link">Pengaturan cookie</a></li>
+            <li><a class="footer__link" href="#">Pusat bantuan</a></li>
+	          <li><a class="footer__link" href="./Ketentuan.php">Kebijakan dan Ketentuan</a></li>
+	          <li><a class="footer__link" href="./Privacy.php">Privacy Policy</a></li>
+	          <li><a class="footer__link" href="#">Atribusi data</a></li>
+	          <li><a class="footer__link" href="#">Pengaturan cookie</a></li>
           </ul>
         </div>
 
