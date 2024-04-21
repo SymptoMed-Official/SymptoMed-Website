@@ -14,13 +14,19 @@
     <p><?php echo "version: " . $api['version'] ?></p>
     <?php echo '<img src="' . $api['url'] . '" width="auto" height="200">'; ?><br><br>
 
-    <form action="post" method="post" enctype="multipart/form-data">
+    <form  method="post" enctype="multipart/form-data" id="coverForm">
       <input type="file" id="cover" name="cover" accept="image/png, image/jpeg">
-      <button type="submit" class="btn btn-primary">submit</button>
+      <button type="submit" class="btn btn-primary" value="upload">submit</button>
     </form>
 
     <script>
-      // Script disini
+      const form = document.getElementById("coverForm")
+      form.addEventListener("submit",function(event){
+        console.log("form submitted");
+        const file = document.getElementById("cover")
+        console.log("selected file: " + file.value)
+      });
+
     </script>
   </div>
 </div>

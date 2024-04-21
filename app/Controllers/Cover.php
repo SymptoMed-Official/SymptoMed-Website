@@ -28,8 +28,16 @@ class Cover extends BaseController
             'form_params' => $_POST
         ])
             ->getBody();
+        $cover = $this->request->getFile('cover');
+        if (! $cover->isValid()) {
+            throw new \RuntimeException($cover->getErrorString() . '(' . $cover->getError() . ')');
+        }
+        
+        $coverName = $cover -> getName();
+        $cover -> move('public/images/foto',$coverName );
         $this->data['api'] = json_decode($response, true);
         $this->data['message'] = $this->data['api']['message'];
         $this->view('cover', $this->data);
+        
     }
 }
