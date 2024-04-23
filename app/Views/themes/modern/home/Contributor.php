@@ -163,7 +163,7 @@
               <span>Mobile Developer</span>
             </div>
           </div>
-        <!-- Supporter 9 -->
+        <!-- Supporter 10 -->
         
         <div class="people__person"> 
             <img src="<?= base_url() ?>/public/home/assets/tasya.png" alt="tasya" />
@@ -173,17 +173,18 @@
             </div>
 	</div>
 
-        <!-- Supporter 9 -->
-        <div class="people__person-info">
-       	<img src="<?= base_url() ?>/public/home/assets/MasChandra.png" alt="Chandra Wijaya" />            
-            <h3>Chandra Wijaya</h3>
-            <span>Mobile Developer Freelance</span></div>
-            </div>
+        <!-- Supporter 11 -->
+	<div class="people__person"> 
+       	<img src="<?= base_url() ?>/public/home/assets/MasChandra.png" alt="Chandra Wijaya" />      
+	<div class="people__person-info">
+        <h3>Chandra Wijaya</h3>
+        <span>Mobile Developer Freelance</span></div>
+        </div>
 	</div>
-        <!-- Supporter 9 -->
-        <div class="people__person-info">
+        <!-- Supporter 12 -->
+	<div class="people__person"> 
         <img src="<?= base_url() ?>/public/home/assets/MasDzul.png" alt="Luthfirrrahman Dzulkarnain" />
-            
+            <div class="people__person-info">
             <h3>Luthfirrrahman Dzulkarnain</h3>
             <span>Mobile Developer Freelance</span></div>
             </div>
