@@ -171,6 +171,7 @@
             <h3>Tasya Puspita</h3>
             <span>Content Creator & Multimedia</span></div>
             </div>
+	</div>
 
         <!-- Supporter 9 -->
         
@@ -179,6 +180,7 @@
             <h3>Chandra Wijaya</h3>
             <span>Mobile Developer Freelance</span></div>
             </div>
+	</div>
         <!-- Supporter 9 -->
         
         <img src="<?= base_url() ?>/public/home/assets/MasDzul.png" alt="Luthfirrrahman Dzulkarnain" />
@@ -186,6 +188,7 @@
             <h3>Luthfirrrahman Dzulkarnain</h3>
             <span>Mobile Developer Freelance</span></div>
             </div>
+	</div>
     
         </div>
         </div>
