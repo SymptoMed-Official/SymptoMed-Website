@@ -20,7 +20,7 @@
     <nav class="header__nav">
       <div class="container header__container">
         <!-- Logo -->
-        <a href="#">
+        <a href="symptomed.id">
           <img src="<?= base_url() ?>/public/home/assets/logo-company.png" alt="SymptoMed logo" class="header__logo" />
         </a>
 
@@ -275,7 +275,7 @@
         <div class="footer__links-group">
           <h5>Hubungi kami</h5>
           <ul>
-            <li><a href="#" class="footer__link">Website</a></li>
+            <li><a href="symptomed.id" class="footer__link">Website</a></li>
             <li>
               <a href="https://www.facebook.com/profile.php?id=61550849998188" class="footer__link">Facebook</a>
             </li>
