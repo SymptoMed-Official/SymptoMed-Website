@@ -27,11 +27,11 @@
         <!-- Header links -->
         <div class="header__links">
           <ul class="header__links-container">
-            <li><a href="#" class="header__link active">Beranda</a></li>
+            <li><a href="symptomed.id" class="header__link">Beranda</a></li>
             <li><a href="#" class="header__link" onclick="showAlert()">Penunjang kesehatan</a></li>
             <li><a href="#" class="header__link" onclick="showAlert()">Forum diskusi</a></li>
             <li><a href="#" class="header__link" onclick="showAlert()">Media edukasi</a></li>
-            <li><a class="header__link" href="Contributor.php" >Kontributor</a></li>
+            <li><a href="#" class="header__link active">Kontributor</a></li>
             <li>
               <a href="https://play.google.com/store/apps/details?id=com.symptomed.symptomed" class="header__play-store">
                 <img src="<?= base_url() ?>/public/home/assets/cta-google-play-color.svg" alt="Google Play" />
@@ -174,17 +174,16 @@
 	</div>
 
         <!-- Supporter 9 -->
-        
-        <img src="<?= base_url() ?>/public/home/assets/MasChandra.png" alt="Chandra Wijaya" />
-            <div class="people__person-info">
+        <div class="people__person-info">
+       	<img src="<?= base_url() ?>/public/home/assets/MasChandra.png" alt="Chandra Wijaya" />            
             <h3>Chandra Wijaya</h3>
             <span>Mobile Developer Freelance</span></div>
             </div>
 	</div>
         <!-- Supporter 9 -->
-        
+        <div class="people__person-info">
         <img src="<?= base_url() ?>/public/home/assets/MasDzul.png" alt="Luthfirrrahman Dzulkarnain" />
-            <div class="people__person-info">
+            
             <h3>Luthfirrrahman Dzulkarnain</h3>
             <span>Mobile Developer Freelance</span></div>
             </div>
