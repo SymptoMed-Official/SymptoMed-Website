@@ -20,20 +20,20 @@
     <nav class="header__nav">
       <div class="container header__container">
         <!-- Logo -->
-        <a href="#">
+        <a href="https://symptomed.id/">
           <img src="<?= base_url() ?>/public/home/assets/logo-company.png" alt="SymptoMed logo" class="header__logo" />
         </a>
 
         <!-- Header links -->
         <div class="header__links">
           <ul class="header__links-container">
-            <li><a href="#" class="header__link active">Beranda</a></li>
+            <li><a href="https://symptomed.id/" class="header__link" >Beranda</a></li>
             <li><a href="#" class="header__link" onclick="showAlert()">Penunjang kesehatan</a></li>
             <li><a href="#" class="header__link" onclick="showAlert()">Forum diskusi</a></li>
             <li><a href="#" class="header__link" onclick="showAlert()">Media edukasi</a></li>
-            <li><a class="header__link" href="Contributor.php" >Kontributor</a></li>
+            <li><a href="#" class="header__link active">Kontributor</a></li>
             <li>
-              <a href="https://play.google.com/store/apps/details?id=com.symptomed.symptomed" class="header__play-store">
+              <a href="https://play.google.com/store/apps/details?id=id.symptomed.symptomed" class="header__play-store">
                 <img src="<?= base_url() ?>/public/home/assets/cta-google-play-color.svg" alt="Google Play" />
               </a>
             </li>
@@ -41,7 +41,7 @@
         </div>
 
         <!-- Header cta -->
-        <a href="https://play.google.com/store/apps/details?id=com.symptomed.symptomed" class="header__play-store">
+        <a href="https://play.google.com/store/apps/details?id=id.symptomed.symptomed" class="header__play-store">
           <img src="<?= base_url() ?>/public/home/assets/cta-google-play-color.svg" alt="Google Play" />
         </a>
 
@@ -130,7 +130,7 @@
         <!-- Supporter 6 -->
         
         <div class="people__person">
-            <img src="<?= base_url() ?>/public/home/assets/Anubg.png" alt="Anugrah C.K." />
+            <img src="<?= base_url() ?>/public/home/assets/nurul.png" alt="Nurul Salsabila" />
             <div class="people__person-info">
               <h3>Nurul Salsabila.</h3>
               <span>Content Writter & Multimedia</span>
@@ -163,7 +163,7 @@
               <span>Mobile Developer</span>
             </div>
           </div>
-        <!-- Supporter 9 -->
+        <!-- Supporter 10 -->
         
         <div class="people__person"> 
             <img src="<?= base_url() ?>/public/home/assets/tasya.png" alt="tasya" />
@@ -172,20 +172,22 @@
             <span>Content Creator & Multimedia</span></div>
             </div>
 
-        <!-- Supporter 9 -->
-        
-        <img src="<?= base_url() ?>/public/home/assets/MasChandra.png" alt="Chandra Wijaya" />
-            <div class="people__person-info">
-            <h3>Chandra Wijaya</h3>
-            <span>Mobile Developer Freelance</span></div>
-            </div>
-        <!-- Supporter 9 -->
-        
+        <!-- Supporter 11 -->
+	<div class="people__person"> 
+       	<img src="<?= base_url() ?>/public/home/assets/MasChandra.png" alt="Chandra Wijaya" />      
+	<div class="people__person-info">
+        <h3>Chandra Wijaya</h3>
+        <span>Mobile Developer Freelance</span></div>
+        </div>
+
+        <!-- Supporter 12 -->
+	<div class="people__person"> 
         <img src="<?= base_url() ?>/public/home/assets/MasDzul.png" alt="Luthfirrrahman Dzulkarnain" />
             <div class="people__person-info">
             <h3>Luthfirrrahman Dzulkarnain</h3>
             <span>Mobile Developer Freelance</span></div>
             </div>
+	</div>
     
         </div>
         </div>
@@ -202,7 +204,7 @@
             Dapatkan yang terbaik dari SymptoMed dan nikmati akses ke
             fitur-fitur terlengkap.
           </p>
-          <a href="https://play.google.com/store/apps/details?id=com.symptomed.symptomed">
+          <a href="https://play.google.com/store/apps/details?id=id.symptomed.symptomed">
             <img src="<?= base_url() ?>/public/home/assets/cta-google-play-color.svg" alt="Get on Google Play icon" />
           </a>
         </div>
@@ -261,8 +263,8 @@
           <h5>Dukungan</h5>
           <ul>
             <li><a class="footer__link" href="#">Pusat bantuan</a></li>
-	          <li><a class="footer__link" href="./Ketentuan.php">Kebijakan dan Ketentuan</a></li>
-	          <li><a class="footer__link" href="./Privacy.php">Privacy Policy</a></li>
+	          <li><a class="footer__link" href="https://symptomed.id/home/ketentuan">Kebijakan dan Ketentuan</a></li>
+	          <li><a class="footer__link" href="https://symptomed.id/home/privacy">Privacy Policy</a></li>
 	          <li><a class="footer__link" href="#">Atribusi data</a></li>
 	          <li><a class="footer__link" href="#">Pengaturan cookie</a></li>
           </ul>
@@ -272,7 +274,7 @@
         <div class="footer__links-group">
           <h5>Hubungi kami</h5>
           <ul>
-            <li><a href="#" class="footer__link">Website</a></li>
+            <li><a href="https://symptomed.id/" class="footer__link">Website</a></li>
             <li>
               <a href="https://www.facebook.com/profile.php?id=61550849998188" class="footer__link">Facebook</a>
             </li>

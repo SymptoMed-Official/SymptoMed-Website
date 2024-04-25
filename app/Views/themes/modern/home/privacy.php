@@ -539,17 +539,15 @@
             <li><a class="footer__link" href="#Partner">Partner</a></li>
           </ul>
         </div>
-        <!-- Links group 2 -->
-
-        <div class="footer__links-group">
+    <!-- Links group 2 -->
+    <div class="footer__links-group">
           <h5>Dukungan</h5>
-
           <ul>
             <li><a class="footer__link" href="#">Pusat bantuan</a></li>
-            <li><a class="footer__link" href="<?= base_url() ?>/public/home/Ketentuan.html">Kebijakan dan Ketentuan</a></li>
-            <li><a class="footer__link" href="<?= base_url() ?>/public/home/Privacy.html">Privacy Policy</a></li>
-            <li><a class="footer__link" href="#">Atribusi data</a></li>
-            <li><a class="footer__link" href="#">Pengaturan cookie</a></li>
+	          <li><a class="footer__link" href="https://symptomed.id/home/ketentuan">Kebijakan dan Ketentuan</a></li>
+	          <li><a class="footer__link" href="https://symptomed.id/home/privacy">Privacy Policy</a></li>
+	          <li><a class="footer__link" href="#">Atribusi data</a></li>
+	          <li><a class="footer__link" href="#">Pengaturan cookie</a></li>
           </ul>
         </div>
         <!-- links group 3 -->
