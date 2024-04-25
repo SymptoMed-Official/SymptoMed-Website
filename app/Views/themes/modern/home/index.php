@@ -31,9 +31,9 @@
             <li><a href="#" class="header__link" onclick="showAlert()">Penunjang kesehatan</a></li>
             <li><a href="#" class="header__link" onclick="showAlert()">Forum diskusi</a></li>
             <li><a href="#" class="header__link" onclick="showAlert()">Media edukasi</a></li>
-            <li><a class="header__link" href="https://symptomed.id/home/contributor" >Kontributor</a></li>
+            <li><a class="header__link" href="Contributor.php" >Kontributor</a></li>
             <li>
-              <a href="https://play.google.com/store/apps/details?id=id.symptomed.symptomed" class="header__play-store">
+              <a href="https://play.google.com/store/apps/details?id=com.symptomed.symptomed" class="header__play-store">
                 <img src="<?= base_url() ?>/public/home/assets/cta-google-play-color.svg" alt="Google Play" />
               </a>
             </li>
@@ -41,7 +41,7 @@
         </div>
 
         <!-- Header cta -->
-        <a href="https://play.google.com/store/apps/details?id=id.symptomed.symptomed" class="header__play-store">
+        <a href="https://play.google.com/store/apps/details?id=com.symptomed.symptomed" class="header__play-store">
           <img src="<?= base_url() ?>/public/home/assets/cta-google-play-color.svg" alt="Google Play" />
         </a>
 
@@ -550,7 +550,7 @@
             Dapatkan yang terbaik dari SymptoMed dan nikmati akses ke
             fitur-fitur terlengkap.
           </p>
-          <a href="https://play.google.com/store/apps/details?id=id.symptomed.symptomed">
+          <a href="https://play.google.com/store/apps/details?id=com.symptomed.symptomed">
             <img src="<?= base_url() ?>/public/home/assets/cta-google-play-color.svg" alt="Get on Google Play icon" />
           </a>
         </div>
@@ -609,8 +609,8 @@
           <h5>Dukungan</h5>
           <ul>
             <li><a class="footer__link" href="#">Pusat bantuan</a></li>
-	          <li><a class="footer__link" href="https://symptomed.id/home/ketentuan">Kebijakan dan Ketentuan</a></li>
-	          <li><a class="footer__link" href="https://symptomed.id/home/Privacy">Privacy Policy</a></li>
+	          <li><a class="footer__link" href="./Ketentuan.php">Kebijakan dan Ketentuan</a></li>
+	          <li><a class="footer__link" href="./Privacy.php">Privacy Policy</a></li>
 	          <li><a class="footer__link" href="#">Atribusi data</a></li>
 	          <li><a class="footer__link" href="#">Pengaturan cookie</a></li>
           </ul>

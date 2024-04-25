@@ -20,18 +20,18 @@
     <nav class="header__nav">
       <div class="container header__container">
         <!-- Logo -->
-        <a href="symptomed.id">
+        <a href="#">
           <img src="<?= base_url() ?>/public/home/assets/logo-company.png" alt="SymptoMed logo" class="header__logo" />
         </a>
 
         <!-- Header links -->
         <div class="header__links">
           <ul class="header__links-container">
-            <li><a href="symptomed.id" class="header__link">Beranda</a></li>
+            <li><a href="#" class="header__link active">Beranda</a></li>
             <li><a href="#" class="header__link" onclick="showAlert()">Penunjang kesehatan</a></li>
             <li><a href="#" class="header__link" onclick="showAlert()">Forum diskusi</a></li>
             <li><a href="#" class="header__link" onclick="showAlert()">Media edukasi</a></li>
-            <li><a href="#" class="header__link active">Kontributor</a></li>
+            <li><a class="header__link" href="Contributor.php" >Kontributor</a></li>
             <li>
               <a href="https://play.google.com/store/apps/details?id=com.symptomed.symptomed" class="header__play-store">
                 <img src="<?= base_url() ?>/public/home/assets/cta-google-play-color.svg" alt="Google Play" />
@@ -163,7 +163,7 @@
               <span>Mobile Developer</span>
             </div>
           </div>
-        <!-- Supporter 10 -->
+        <!-- Supporter 9 -->
         
         <div class="people__person"> 
             <img src="<?= base_url() ?>/public/home/assets/tasya.png" alt="tasya" />
@@ -171,24 +171,21 @@
             <h3>Tasya Puspita</h3>
             <span>Content Creator & Multimedia</span></div>
             </div>
-	</div>
 
-        <!-- Supporter 11 -->
-	<div class="people__person"> 
-       	<img src="<?= base_url() ?>/public/home/assets/MasChandra.png" alt="Chandra Wijaya" />      
-	<div class="people__person-info">
-        <h3>Chandra Wijaya</h3>
-        <span>Mobile Developer Freelance</span></div>
-        </div>
-	</div>
-        <!-- Supporter 12 -->
-	<div class="people__person"> 
+        <!-- Supporter 9 -->
+        
+        <img src="<?= base_url() ?>/public/home/assets/MasChandra.png" alt="Chandra Wijaya" />
+            <div class="people__person-info">
+            <h3>Chandra Wijaya</h3>
+            <span>Mobile Developer Freelance</span></div>
+            </div>
+        <!-- Supporter 9 -->
+        
         <img src="<?= base_url() ?>/public/home/assets/MasDzul.png" alt="Luthfirrrahman Dzulkarnain" />
             <div class="people__person-info">
             <h3>Luthfirrrahman Dzulkarnain</h3>
             <span>Mobile Developer Freelance</span></div>
             </div>
-	</div>
     
         </div>
         </div>
@@ -275,7 +272,7 @@
         <div class="footer__links-group">
           <h5>Hubungi kami</h5>
           <ul>
-            <li><a href="symptomed.id" class="footer__link">Website</a></li>
+            <li><a href="#" class="footer__link">Website</a></li>
             <li>
               <a href="https://www.facebook.com/profile.php?id=61550849998188" class="footer__link">Facebook</a>
             </li>

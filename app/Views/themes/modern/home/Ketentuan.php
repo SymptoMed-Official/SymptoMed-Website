@@ -18,14 +18,14 @@
 <!-- HEADER -->
 <header class="header">
 <nav class="header__nav">
-<div class="container header__container"><!-- Logo --><a href="https://symptomed.id"><img alt="SymptoMed logo" class="header__logo" src="./assets/logo-company.png" /> </a> <!-- Header links -->
+<div class="container header__container"><!-- Logo --><a href="#"><img alt="SymptoMed logo" class="header__logo" src="./assets/logo-company.png" /> </a> <!-- Header links -->
 <div class="header__links">
 <ul class="header__links-container">
-	<li><a class="header__link" href="https://symptomed.id">Beranda</a></li>
+	<li><a class="header__link" href="index.html">Beranda</a></li>
 	<li><a class="header__link" href="#" onclick="showAlert()">Penunjang kesehatan</a></li>
 	<li><a class="header__link" href="#" onclick="showAlert()">Forum diskusi</a></li>
 	<li><a class="header__link" href="#" onclick="showAlert()">Media edukasi</a></li>
-	<li><a class="header__link" href="https://symptomed.id/home/contributor" >Kontributor</a></li>
+	<li><a class="header__link" href="Contributor.html" >Kontributor</a></li>
 	<li><a class="header__play-store" href="https://play.google.com/store/apps/details?id=id.symptomed.symptomed"><img alt="Google Play" src="./assets/cta-google-play-color.svg" /> </a></li>
 </ul>
 </div>
@@ -111,7 +111,7 @@ PT. Symptomedica Prima SolusIndo. <!-- Terdaftar pada ABC. --></p>
 <h5>Perusahaan</h5>
 
 <ul>
-	<li><a class="footer__link" href="https://symptomed.id">Tentang</a></li>
+	<li><a class="footer__link" href="#Tentang_Kami">Tentang</a></li>
 	<li><a class="footer__link" href="#Fitur">Fitur</a></li>
 	<li><a class="footer__link" href="#Partner">Partner</a></li>
 </ul>
@@ -123,8 +123,8 @@ PT. Symptomedica Prima SolusIndo. <!-- Terdaftar pada ABC. --></p>
 
 <ul>
 	<li><a class="footer__link" href="#">Pusat bantuan</a></li>
-	<li><a class="footer__link" href="https://symptomed.id/home/ketentuan">Kebijakan dan Ketentuan</a></li>
-	<li><a class="footer__link" href="https://symptomed.id/home/privacy">Privacy Policy</a></li>
+	<li><a class="footer__link" href="./Ketentuan.html">Kebijakan dan Ketentuan</a></li>
+	<li><a class="footer__link" href="./Privacy.html">Privacy Policy</a></li>
 	<li><a class="footer__link" href="#">Atribusi data</a></li>
 	<li><a class="footer__link" href="#">Pengaturan cookie</a></li>
 </ul>
@@ -135,7 +135,7 @@ PT. Symptomedica Prima SolusIndo. <!-- Terdaftar pada ABC. --></p>
 <h5>Hubungi kami</h5>
 
 <ul>
-	<li><a class="footer__link" href="https://symptomed.id">Website</a></li>
+	<li><a class="footer__link" href="#">Website</a></li>
 	<li><a class="footer__link" href="https://www.facebook.com/profile.php?id=61550849998188">Facebook</a></li>
 	<li><a class="footer__link" href="https://www.tiktok.com/@symptomed.id">TikTok</a></li>
 	<li><a class="footer__link" href="https://www.instagram.com/symptomed.id/">Instagram</a></li>
