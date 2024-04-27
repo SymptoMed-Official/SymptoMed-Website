@@ -12,6 +12,6 @@ class Contributor extends \App\Controllers\BaseController
   {
     $this->data['site_title'] = 'SymptoMed, your personal healthcare solution!';
     $this->data['site_desc'] = 'SymptoMed merupakan sebuah aplikasi mobile yang bertujuan untuk mendukung pelayanan kesehatan masyarakat Indonesia secara merata, mudah, mandiri serta akurat menggunakan pendekatan kecerdasan buatan (Artificial Intelligence/AI).';
-    return view('themes/modern/home/contributor', $this->data);
+    return view('themes/modern/home/Contributor', $this->data);
   }
 };
