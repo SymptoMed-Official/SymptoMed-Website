@@ -11,7 +11,8 @@
     <!-- Kode untuk ada button diatas garis/ tag HR -->
 
     <!-- Tambahkan kode Disini -->
-    <p><?php echo "version: " . $api['version'] ?></p>
+    <p class="textBorder"><?php echo "version: " . $api['version'] ?></p>
+    <br>
     <?php echo '<img src="' . $api['url'] . '" width="auto" height="200">'; ?><br><br>
 
     <form method="post" action="/post" enctype="multipart/form-data" id="coverForm">
@@ -31,3 +32,19 @@
     </script>
   </div>
 </div>
+<style>
+  img{
+    border: 5px solid #555;
+  }
+  .textBorder{
+    padding: 10px; /* Adjust padding as needed */
+    border: 1px solid #1976d2;
+    width: fit-content;
+    border-width: 5px;
+    font-weight: bold;
+    background-color: #1976d2;
+    border-radius: 0.375rem;
+    color: white;
+
+  }
+</style>
