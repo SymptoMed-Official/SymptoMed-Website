@@ -15,29 +15,54 @@
     <br>
     <?php echo '<img src="' . $api['url'] . '" width="auto" height="200">'; ?><br><br>
 
-    <form method="post" action="/post" enctype="multipart/form-data" id="coverForm">
+    <form method="post" action="" enctype="multipart/form-data" id="coverForm">
       <input type="file" id="cover" name="cover" accept="image/png, image/jpeg">
       <button type="submit" class="btn btn-primary" value="upload">submit</button>
     </form>
 
     <script>
-    const form = document.getElementById("coverForm")
-    form.addEventListener("submit", function(event) {
-      console.log("form submitted");
-      const file = document.getElementById("cover")
-      console.log("selected file: " + file.value)
-    });
-
-    // POST to New Cover API : Using AJAX
+      const form = document.getElementById("coverForm")
+      form.addEventListener("submit", function(event) {
+        console.log("form submitted");
+        // POST to New Cover API : Using AJAX ke button
+        $.ajax({
+          type: "POST",
+          // Header authorization
+          // headers: {
+          //   "Authorization": "Bearer "
+          // },
+          url: "<?= $actionURL ?>",
+          data: new FormData(form),
+          processData: false,
+          contentType: false,
+          success: function(data) {
+            console.log(data);
+            swal.fire({
+              icon: 'success',
+              title: 'Success',
+              text: 'Cover has been uploaded successfully',
+              confirmButtonText: 'OK'
+            }).then((result) => {
+              if (result.isConfirmed) {
+                location.reload();
+              }
+            })
+          }
+        })
+        const file = document.getElementById("cover")
+        console.log("selected file: " + file.value)
+      });
     </script>
   </div>
 </div>
 <style>
-  img{
+  img {
     border: 5px solid #555;
   }
-  .textBorder{
-    padding: 10px; /* Adjust padding as needed */
+
+  .textBorder {
+    padding: 10px;
+    /* Adjust padding as needed */
     border: 1px solid #1976d2;
     width: fit-content;
     border-width: 5px;

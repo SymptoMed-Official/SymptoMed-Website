@@ -18,6 +18,7 @@ class Cover extends BaseController
         ])
             ->getBody();
         $this->data['api'] = json_decode($response, true);
+        $this->data['actionURL'] = $this->urlAdminAPI . '/cover';
         $this->view('cover', $this->data);
     }
     public function post()
@@ -30,15 +31,14 @@ class Cover extends BaseController
         ])
             ->getBody();
         $cover = $this->request->getFile('cover');
-        if (! $cover->isValid()) {
+        if (!$cover->isValid()) {
             throw new \RuntimeException($cover->getErrorString() . '(' . $cover->getError() . ')');
         }
-        
-        $coverName = $cover -> getName();
-        $cover -> move('public/images/foto',$coverName );
+
+        $coverName = $cover->getName();
+        $cover->move('public/images/foto', $coverName);
         $this->data['api'] = json_decode($response, true);
         $this->data['message'] = $this->data['api']['message'];
         $this->view('cover', $this->data);
-        
     }
 }

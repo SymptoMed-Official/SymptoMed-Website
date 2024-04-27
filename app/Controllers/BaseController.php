@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace App\Controllers;
 
@@ -19,7 +19,7 @@ class BaseController extends Controller
 	protected $user;
 	protected $model;
 	protected $themeMode;
-	
+
 	public $currentModule;
 	private $controllerName;
 	private $methodName;
@@ -30,7 +30,7 @@ class BaseController extends Controller
 	protected $userPermission;
 	//API
 	protected $urlAPI, $urlAdminAPI, $urlDoctorAPI;
-	
+
 	/*
 	Alur:
 	Sistem akan menegcek router.
@@ -46,55 +46,52 @@ class BaseController extends Controller
 	
 	}
 	*/
-	public function __construct() 
+	public function __construct()
 	{
 		date_default_timezone_set('Asia/Jakarta');
-		
+
 		$this->config = new App;
 		$this->auth = new Auth;
 		$this->model = new BaseModel;
-		
+
 		//API URL
 		$this->urlAPI = getenv('url');
 		$this->urlAdminAPI = getenv('url_admin');
 		$this->urlDoctorAPI = getenv('url_doctor');
-		
+
 		// Autoload util helpers (app\Helpers\Autoload.php)
 		if ($this->config->csrf['enable']) {
 			helper('csrf');
 			csrf_settoken();
 		}
-		
+
 		$this->session = \Config\Services::session();
 		$this->request = \Config\Services::request();
-		
+
 		helper('util');
 		$web = $this->session->get('web');
 
 		$nama_module = $web['nama_module'];
 		$module = $this->model->getModule($nama_module);
-		
+
 		if (!$module) {
 			$this->data['content'] = 'Module ' . $nama_module . ' tidak ditemukan di database';
 			$this->exitError($this->data);
 		}
-		
+
 		$this->isLoggedIn = $this->session->get('logged_in');
 		$this->currentModule = $module;
 		$this->moduleURL = $web['module_url'];
 		$this->user = $this->session->get('user');
 		$this->model->checkRememberme();
-		
+
 		$this->data['current_module'] = $this->currentModule;
-		$this->data['scripts'] = array($this->config->baseURL . '/public/assets/vendors/jquery/jquery.min.js'
-										, $this->config->baseURL . '/public/assets/vendors/flatpickr/flatpickr.js'
-										, $this->config->baseURL . '/public/themes/modern/assets/js/site.js?r='.time()
-										, $this->config->baseURL . '/public/assets/vendors/bootstrap/js/bootstrap.js'
-								);
+		$this->data['scripts'] = array(
+			$this->config->baseURL . '/public/assets/vendors/jquery/jquery.min.js', $this->config->baseURL . '/public/assets/vendors/flatpickr/flatpickr.js', $this->config->baseURL . '/public/themes/modern/assets/js/site.js?r=' . time(), $this->config->baseURL . '/public/assets/vendors/bootstrap/js/bootstrap.js'
+		);
 		$this->data['styles'] = array(
-									$this->config->baseURL . '/public/assets/vendors/bootstrap/css/bootstrap.css'
-									, $this->config->baseURL . '/public/themes/modern/assets/css/site.css?r='.time()
-								);
+			$this->config->baseURL . '/public/assets/vendors/bootstrap/css/bootstrap.css', $this->config->baseURL . '/public/themes/modern/assets/css/site.css?r=' . time()
+		);
 		$this->data['config'] = $this->config;
 		$this->data['request'] = $this->request;
 		$this->data['isloggedin'] = $this->isLoggedIn;
@@ -107,20 +104,19 @@ class BaseController extends Controller
 		$this->data['scripts'] = [];
 		$this->data['styles'] = [];
 		$this->data['module_url'] = $this->moduleURL;
-		
+
 		if (!empty($_COOKIE['jwd_adm_theme'])) {
 			$this->themeMode = $this->data['theme_mode'] = $_COOKIE['jwd_adm_theme'];
 		} else {
 			$this->themeMode = $this->data['theme_mode'] = 'light';
 		}
-				
+
 		if ($this->isLoggedIn) {
 			$user_setting = $this->model->getUserSetting();
-			
+
 			if ($user_setting) {
 				$this->data['app_layout'] = json_decode($user_setting->param, true);
 			}
-				
 		} else {
 			$query = $this->model->getAppLayoutSetting();
 			foreach ($query as $val) {
@@ -128,28 +124,27 @@ class BaseController extends Controller
 			}
 			$this->data['app_layout'] = $app_layout;
 		}
-		
+
 		// Login? Yes, No, Restrict
 		if ($this->currentModule['login'] == 'Y' && $nama_module != 'login') {
 			$this->loginRequired();
 		} else if ($this->currentModule['login'] == 'R') {
 			$this->loginRestricted();
 		}
-		
-		if ($this->isLoggedIn) 
-		{
+
+		if ($this->isLoggedIn) {
 			$this->data['user'] = $this->user;
 
 			// List action assigned to role
 			$this->data['action_user'] = $this->userPermission;
 			$this->data['menu'] = $this->model->getMenu($this->currentModule['nama_module']);
-			
+
 			$this->data['breadcrumb'] = ['Home' => $this->config->baseURL, $this->currentModule['judul_module'] => $this->moduleURL];
 			$this->data['module_role'] = $this->model->getDefaultUserModule();
-						
+
 			$this->getModulePermission();
 			$this->getListPermission();
-			
+
 			$result = $this->model->getAllModulePermission($_SESSION['user']['id_user']);
 			$all_module_permission = [];
 			if ($result) {
@@ -158,24 +153,24 @@ class BaseController extends Controller
 				}
 			}
 			$_SESSION['user']['all_permission'] = $all_module_permission;
-			
+
 			// Check Global Role Action
 			$this->checkRoleAction();
 			if ($nama_module == 'login') {
 				$this->redirectOnLoggedIn();
 			}
 		}
-		
+
 		if ($module['id_module_status'] != 1) {
 			$this->printError('Module ' . $module['judul_module'] . ' sedang ' . strtolower($module['nama_status']));
 			exit();
 		}
 	}
-	
+
 	private function getModulePermission()
 	{
 		$query = $this->model->getModulePermission($this->currentModule['id_module']);
-		
+
 		$this->modulePermission = [];
 		foreach ($query as $val) {
 			$nama_permission = $val['nama_permission'] ?: 'null';
@@ -183,12 +178,11 @@ class BaseController extends Controller
 		}
 	}
 
-	private function getListPermission() 
-	{ 
+	private function getListPermission()
+	{
 		$user_role = $this->session->get('user')['role'];
-				
-		if ($this->isLoggedIn && $this->currentModule['nama_module'] != 'login') 
-		{
+
+		if ($this->isLoggedIn && $this->currentModule['nama_module'] != 'login') {
 			$current_user = $this->model->getUserById($this->user['id_user']);
 			if ($current_user['status'] != 'active') {
 				$this->data['content'] = 'Status akun Anda ' . ucfirst($current_user['status']);
@@ -198,12 +192,11 @@ class BaseController extends Controller
 				$this->printError('User belum memiliki role');
 				exit;
 			}
-			
-			if ($this->modulePermission) 
-			{
+
+			if ($this->modulePermission) {
 				$error = false;
-				if ($this->currentModule['nama_module'] != 'login' ) {
-					
+				if ($this->currentModule['nama_module'] != 'login') {
+
 					$role_exists = false;
 					foreach ($user_role as $id_role => $val) {
 						if (key_exists($id_role, $this->modulePermission)) {
@@ -213,23 +206,21 @@ class BaseController extends Controller
 							break;
 						}
 					}
-					
+
 					if ($this->userPermission) {
 						$session_user = $this->session->get('user');
 						$session_user['permission'] = $this->userPermission;
 						$this->session->set('user', $session_user);
 					}
 
-					if ($role_exists) 
-					{
+					if ($role_exists) {
 						if (!$this->userPermission) {
 							$error = 'Role Anda tidak memiliki permission pada module ' . $this->currentModule['judul_module'];
 						}
-						
 					} else {
 						$error = 'Anda tidak berhak mengakses halaman ini';
 					}
-					
+
 					if ($error) {
 						$this->printError($error);
 						exit();
@@ -241,37 +232,43 @@ class BaseController extends Controller
 			}
 		}
 	}
-	
-	private function setCurrentModule($module) {
+
+	private function setCurrentModule($module)
+	{
 		$this->currentModule['nama_module'] = $module;
 	}
-	
-	protected function getControllerName() {
+
+	protected function getControllerName()
+	{
 		return $this->controllerName;
 	}
-	
-	protected function getMethodName() {
+
+	protected function getMethodName()
+	{
 		return $this->methodName;
 	}
-	
-	protected function addStyle($file) {
+
+	protected function addStyle($file)
+	{
 		$this->data['styles'][] = $file;
 	}
-	
-	protected function addJs($file, $print = false) {
+
+	protected function addJs($file, $print = false)
+	{
 		if ($print) {
 			$this->data['scripts'][] = ['print' => true, 'script' => $file];
 		} else {
 			$this->data['scripts'][] = $file;
 		}
 	}
-	
-	protected function exitError($data) {
+
+	protected function exitError($data)
+	{
 		echo view('app_error.php', $data);
 		exit;
 	}
-	
-	protected function view($file, $data = [], $file_only = false) 
+
+	protected function view($file, $data = [], $file_only = false)
 	{
 		if (is_array($file)) {
 			foreach ($file as $file_item) {
@@ -283,8 +280,8 @@ class BaseController extends Controller
 			echo view('themes/modern/footer.php');
 		}
 	}
-	
-	protected function loginRequired() 
+
+	protected function loginRequired()
 	{
 		if (!$this->isLoggedIn) {
 			header('Location: ' . $this->config->baseURL . 'login');
@@ -292,29 +289,32 @@ class BaseController extends Controller
 			exit();
 		}
 	}
-	
-	protected function loginRestricted() {
+
+	protected function loginRestricted()
+	{
 		if ($this->isLoggedIn) {
 			if ($this->methodName !== 'logout') {
 				header('Location: ' . $this->config->baseURL);
 			}
 		}
 	}
-	
-	protected function redirectOnLoggedIn() {
+
+	protected function redirectOnLoggedIn()
+	{
 		if ($this->isLoggedIn) {
-			
+
 			header('Location: ' . $this->config->baseURL . $this->user['default_module']['nama_module']);
 			// header('Location: ' . $this->config->baseURL . $this->user['default_module']['nama_module']);
 			// redirect($this->router->default_controller);
 		}
 	}
-	
+
 	/* Redirect User setelah login */
-	protected function mustNotLoggedIn() {
-		if ($this->isLoggedIn) {	
+	protected function mustNotLoggedIn()
+	{
+		if ($this->isLoggedIn) {
 			if ($this->currentModule['nama_module'] == 'login') {
-				
+
 				$redirect_url = '';
 				if ($this->user['default_page_type'] == 'url') {
 					$redirect_url = str_replace('{{BASE_URL}}', $this->config->baseURL, $this->user['default_page_url']);
@@ -329,38 +329,35 @@ class BaseController extends Controller
 			}
 		}
 	}
-	
-	protected function mustLoggedIn() {
+
+	protected function mustLoggedIn()
+	{
 		if (!$this->isLoggedIn) {
 			header('Location: ' . $this->config->baseURL . 'login');
 			exit();
 		}
 	}
 
-	private function checkRoleAction() 
+	private function checkRoleAction()
 	{
 
-		if ($this->config->checkRoleAction['enable_global']) 
-		{
+		if ($this->config->checkRoleAction['enable_global']) {
 			$method = $this->session->get('web')['method_name'];
 			$list_action = ['add' => 'create', 'edit' => 'update'];
 			$list_error = ['add' => 'menambah', 'edit' => 'mengubah'];
-			
+
 			$error = false;
-			if ($method == 'add' || $method=='edit') 
-			{
+			if ($method == 'add' || $method == 'edit') {
 				if (key_exists($method, $list_action)) {
-					
-					foreach ($this->userPermission as $val) 
-					{
+
+					foreach ($this->userPermission as $val) {
 						$exp = explode('_', $val);
 						$exists = false;
-						
+
 						if ($list_action[$method] == trim($exp[0])) {;
 							$exists = true;
 							break;
 						}
-						
 					}
 					if (!$exists) {
 						$error = 'Role Anda tidak memiliki permission untuk ' . $list_error[$method] . ' data module ' . $this->currentModule['judul_module'];
@@ -375,35 +372,35 @@ class BaseController extends Controller
 						break;
 					}
 				}
-				
+
 				if (!$exists) {
 					$error = 'Role Anda tidak diperkenankan untuk menghapus data';
 				}
 			}
-			
+
 			if ($error) {
 				$this->data['msg'] = ['status' => 'error', 'message' => $error];
 				$this->view('error.php', $this->data);
 				exit;
 			}
 		}
-		
 	}
-	
-	protected function userCan($action) {
+
+	protected function userCan($action)
+	{
 		if (!$this->userPermission) {
 			return '';
 		}
-				
+
 		foreach ($this->userPermission as $val) {
-			
+
 			$exp = explode('_', $val);
 			if (count($exp) == 1) {
 				if (trim($exp[0]) == trim($action)) {
 					return true;
 				}
 			} else {
-						
+
 				if ($exp[0] == $action) {
 					if ($exp[1] == 'all') {
 						return 'all';
@@ -415,9 +412,10 @@ class BaseController extends Controller
 		}
 		return '';
 	}
-	
-	protected function mustHavePermission($permission) {
-		
+
+	protected function mustHavePermission($permission)
+	{
+
 		if (!in_array($permission, $this->userPermission)) {
 			$response = service('response');
 			$response->setStatusCode(\CodeIgniter\HTTP\Response::HTTP_UNAUTHORIZED);
@@ -428,8 +426,8 @@ class BaseController extends Controller
 			exit;
 		}
 	}
-	
-	protected function hasPermission($action, $exit = false) 
+
+	protected function hasPermission($action, $exit = false)
 	{
 		if (!in_array($action, $this->userPermission)) {
 			if ($exit) {
@@ -440,13 +438,13 @@ class BaseController extends Controller
 		}
 		return in_array($action, $this->userPermission);
 	}
-	
-	protected function hasPermissionPrefix($action, $return = false) {
-		
+
+	protected function hasPermissionPrefix($action, $return = false)
+	{
+
 		$has_permission = false;
 
-		foreach ($this->userPermission as $val) 
-		{
+		foreach ($this->userPermission as $val) {
 			$exp = explode('_', $val);
 			$user_action = trim($exp[0]);
 			if ($user_action == $action || $user_action == $action . '_all') {
@@ -454,21 +452,21 @@ class BaseController extends Controller
 				break;
 			}
 		}
-		
+
 		if (!$has_permission && $return = false) {
-			
+
 			$action_title = ['read' => 'melihat data', 'create' => 'menambah data', 'update' => 'mengubah data', 'delete' => 'menghapus data'];
 			$this->currentModule['nama_module'] = 'error';
 			$this->data['msg'] = ['status' => 'error', 'message' => 'Role Anda tidak diperkenankan untuk pada ' . $action_title[$action]];
 			$this->view('error.php', $this->data);
 			exit;
 		}
-		
-		return $has_permission;	
+
+		return $has_permission;
 	}
-	
-	public function whereOwn($column = null) 
-	{	
+
+	public function whereOwn($column = null)
+	{
 		/* if (!$column)
 			$column = $this->config->checkRoleAction['field'];
 			
@@ -477,18 +475,19 @@ class BaseController extends Controller
 		}
 		
 		return ' WHERE 1 = 1 '; */
-		
+
 		if (!$column)
 			$column = $this->config->checkRoleAction['field'];
-			
+
 		if (key_exists('read_own', $this->userPermission) && !key_exists('read_all', $this->userPermission)) {
 			return ' WHERE ' . $column . ' = ' . $_SESSION['user']['id_user'];
 		}
-		
+
 		return ' WHERE 1 = 1 ';
 	}
-	
-	protected function printError($message) {
+
+	protected function printError($message)
+	{
 		$this->data['title'] = 'Error...';
 		if (is_string($message)) {
 			$message = ['status' => 'error', 'message' => $message];
@@ -496,14 +495,15 @@ class BaseController extends Controller
 		$this->data['msg'] = $message;
 		$this->view('error.php', $this->data);
 	}
-	
+
 	/* Used for modules when edited data not found */
-	protected function errorDataNotFound($addData = null) {
+	protected function errorDataNotFound($addData = null)
+	{
 		$data = $this->data;
 		$data['title'] = 'Error';
 		$data['msg']['status'] = 'error';
 		$data['msg']['content'] = 'Data tidak ditemukan';
-		
+
 		if ($addData) {
 			$data = array_merge($data, $addData);
 		}
@@ -511,60 +511,59 @@ class BaseController extends Controller
 	}
 
 	protected function callApiPublic($data = [])
-    {
-        $url = $data['path']; 
-        $options = [];
+	{
+		$url = $data['path'];
+		$options = [];
 
-        $client = \Config\Services::curlrequest();
-        $options['http_errors'] = false;
-        if (isset($data['form_params'])) {
-            $options['form_params'] = $data['form_params'];
-        }
-        if (isset($data['multipart'])) {
-            $options['multipart'] = $data['multipart'];
-        }
+		$client = \Config\Services::curlrequest();
+		$options['http_errors'] = false;
+		if (isset($data['form_params'])) {
+			$options['form_params'] = $data['form_params'];
+		}
+		if (isset($data['multipart'])) {
+			$options['multipart'] = $data['multipart'];
+		}
 
-        $response = $client->request($data['method'], $url, $options);
-        return $response;
-    }
+		$response = $client->request($data['method'], $url, $options);
+		return $response;
+	}
 
 	protected function callApi($data = [])
-    {
+	{
 		$this->setJwtToken();
-        $url = $data['path']; 
-        $options = [];
+		$url = $data['path'];
+		$options = [];
 
-        $client = \Config\Services::curlrequest();
-        $options['http_errors'] = false;
-        $options['headers'] = ['Authorization' => 'Bearer ' . $this->session->get('jwtToken')];
+		$client = \Config\Services::curlrequest();
+		$options['http_errors'] = false;
+		$options['headers'] = ['Authorization' => 'Bearer ' . $this->session->get('jwtToken')];
 
-        if (isset($data['form_params'])) {
-            $options['form_params'] = $data['form_params'];
-        }
-        if (isset($data['multipart'])) {
-            $options['multipart'] = $data['multipart'];
-        }
+		if (isset($data['form_params'])) {
+			$options['form_params'] = $data['form_params'];
+		}
+		if (isset($data['multipart'])) {
+			$options['multipart'] = $data['multipart'];
+		}
 
-        $response = $client->request($data['method'], $url, $options);
-        return $response;
-    }
+		$response = $client->request($data['method'], $url, $options);
+		return $response;
+	}
 
-    protected function setJwtToken()
-    {
+	protected function setJwtToken()
+	{
 		//Atur di login sebagai dokter atau admin untuk nentuin URL
-        $session = session();
-        $url = "https://symptomed-401211.et.r.appspot.com/auth/login";
-        $data = [
-            'email' => 'arizkiputrar@gmail.com',
-            'password' => 'arizki2020',
-			'fcmToken' => 'fcmToken'
-        ];
-        $ch = curl_init($url);
-        curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        $response = curl_exec($ch);
-		dd($response);
-        $session->set('jwtToken', json_decode($response)->token);
-        curl_close($ch);
-    }
+		$session = session();
+		$url = "https://symptomed-401211.et.r.appspot.com/auth/login";
+		$data = [
+			'email' => 'alifdokter@gmail.com',
+			'password' => 'danar1145',
+			'fcmToken' => 'fcm'
+		];
+		$ch = curl_init($url);
+		curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+		$response = curl_exec($ch);
+		$session->set('jwtToken', json_decode($response)->token);
+		curl_close($ch);
+	}
 }
