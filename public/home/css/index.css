@@ -168,7 +168,7 @@ h2 {
 
 h3 {
   font-weight: 600;
-  font-size: var(--size-heading-3);
+  /* font-size: var(--size-heading-3); */
   line-height: var(--line-height-2);
 }
 
