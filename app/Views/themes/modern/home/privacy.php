@@ -212,7 +212,6 @@
             </p>
           </div>
         </div>
-<<<<<<< HEAD
       </div>
 
       <!-- Accordion 3 -->
@@ -269,18 +268,6 @@
             <br><p></p><br>
             <p>For more information about the cookies we use and your choices regarding cookies, please visit our Cookies Policy or the Cookies section of our Privacy Policy.</p>
           </div>
-=======
-    <!-- Links group 2 -->
-    <div class="footer__links-group">
-          <h5>Dukungan</h5>
-          <ul>
-            <li><a class="footer__link" href="#">Pusat bantuan</a></li>
-	          <li><a class="footer__link" href="https://symptomed.id/home/ketentuan">Kebijakan dan Ketentuan</a></li>
-	          <li><a class="footer__link" href="https://symptomed.id/home/privacy">Privacy Policy</a></li>
-	          <li><a class="footer__link" href="#">Atribusi data</a></li>
-	          <li><a class="footer__link" href="#">Pengaturan cookie</a></li>
-          </ul>
->>>>>>> 8c4f0cf7f08f0bb41d089f8db1ad73f66a4e07f2
         </div>
       </div>
 
