@@ -22,6 +22,7 @@ class Cover extends BaseController
     }
     public function post()
     {
+        //get from form data (front end)
         $response = $this->callApi([
             'method' => 'POST',
             'path' => $this->urlAdminAPI . '/cover',
