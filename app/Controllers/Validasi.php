@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Controllers;
-use App\Models\EdukasiModel;
+use App\Models\ValidasiModel;
 
 class Validasi extends BaseController
 {
@@ -9,7 +9,7 @@ class Validasi extends BaseController
   public function __construct()
 	{
 		parent::__construct();
-		$this->model = new EdukasiModel;
+		$this->model = new ValidasiModel;
 		$this->configFilepicker = new \Config\Filepicker();
 
 		$this->addJs(
@@ -46,6 +46,8 @@ class Validasi extends BaseController
       'path' => $this->urlAPI . '/validasi', //ganti validasi
     ])
       ->getBody();
+	$penyakit = $this->model->getAllPenyakit($this->whereOwn());
+    $this->data['penyakit'] = $penyakit;
     $this->data['api'] = json_decode($response, true);
     $this->view('validasi', $this->data);
   }
@@ -99,14 +101,14 @@ class Validasi extends BaseController
 		$save = $this->model->saveData();
 		$message = $save['message'];
 		if ($message['status'] == 'ok') {
-			$id_validasi = $save['id_validasi'];
+			$id_validasi = $save['id_penyakit'];
 			$data['title'] = 'Edit Validasi Data ML';
 		}
 	}
 
 	$set_data = $this->model->setData($id_validasi, $this->whereOwn());
 
-	if ($set_data['artikel']) {
+	if ($set_data['penyakit']) {
 		foreach ($artikel as $key => $val) {
 			$data[$key] = $val;
 		}

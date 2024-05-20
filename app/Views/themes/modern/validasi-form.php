@@ -19,7 +19,7 @@ $ref_author = [];
 				<div class="col-md-9">
 					<div class="mb-3">
 						<label class="control-label mb-2">Nama Penyakit</label>
-						<input class="form-control" type="text" name="title" value="<?= set_value('penyakit', @$penyakit) ?>" placeholder="Nama Penyakit" required />
+						<input class="form-control" type="text" name="title" value="<?= set_value('nama_penyakit', @$nama_penyakit) ?>" placeholder="Nama Penyakit" required />
 					</div>
 					<div class="mb-3">
 						<label class="control-label mb-2">Definisi</label>
