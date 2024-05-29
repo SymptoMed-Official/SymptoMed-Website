@@ -20,14 +20,14 @@
     <nav class="header__nav">
       <div class="container header__container">
         <!-- Logo -->
-        <a href="https://symptomed.id/">
+        <a href="<?= base_url() ?>">
           <img src="<?= base_url() ?>/public/home/assets/logo-company.png" alt="SymptoMed logo" class="header__logo" />
         </a>
 
         <!-- Header links -->
         <div class="header__links">
           <ul class="header__links-container">
-            <li><a href="https://symptomed.id/" class="header__link" >Beranda</a></li>
+            <li><a href="<?= base_url() ?>" class="header__link" >Beranda</a></li>
             <li><a href="#" class="header__link" onclick="showAlert()">Penunjang kesehatan</a></li>
             <li><a href="#" class="header__link" onclick="showAlert()">Forum diskusi</a></li>
             <li><a href="#" class="header__link" onclick="showAlert()">Media edukasi</a></li>
@@ -263,8 +263,8 @@
           <h5>Dukungan</h5>
           <ul>
             <li><a class="footer__link" href="#">Pusat bantuan</a></li>
-	          <li><a class="footer__link" href="https://symptomed.id/home/ketentuan">Kebijakan dan Ketentuan</a></li>
-	          <li><a class="footer__link" href="https://symptomed.id/home/privacy">Privacy Policy</a></li>
+	          <li><a class="footer__link" href="<?= base_url() ?>/home/ketentuan">Kebijakan dan Ketentuan</a></li>
+	          <li><a class="footer__link" href="<?= base_url() ?>/home/privacy">Privacy Policy</a></li>
 	          <li><a class="footer__link" href="#">Atribusi data</a></li>
 	          <li><a class="footer__link" href="#">Pengaturan cookie</a></li>
           </ul>
@@ -274,7 +274,7 @@
         <div class="footer__links-group">
           <h5>Hubungi kami</h5>
           <ul>
-            <li><a href="https://symptomed.id/" class="footer__link">Website</a></li>
+            <li><a href="<?= base_url() ?>" class="footer__link">Website</a></li>
             <li>
               <a href="https://www.facebook.com/profile.php?id=61550849998188" class="footer__link">Facebook</a>
             </li>
