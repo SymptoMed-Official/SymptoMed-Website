@@ -97,6 +97,7 @@ class Artikel extends BaseController
 		}
 		
 		$this->data = array_merge($this->data, $set_data);
+		dd($id_artikel);
         $this->data['message'] = $message;
 		
         $this->view('artikel-form.php', $this->data);

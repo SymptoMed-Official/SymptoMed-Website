@@ -58,82 +58,13 @@ $ref_author = [];
 						<textarea class="form-control tinymce" rows="2" type="text" name="reference"><?= set_value('referensi', @$refer) ?></textarea>
 					</div>
 				</div>
-				<div class="col-md-3">
-					<div class="mb-3">
-						<label class="control-label mb-2">Writer</label>
-						<div>
-							<?php
 
-							if (!$ref_author) {
-								echo '<div class="alert alert-danger">Data author masih kosong, silakan diisi terlebih dahulu</div>';
-							} else {
-								echo options(
-									[
-										'class' => 'form-control select2', 'name' => 'id_author[]', 'multiple' => 'multiple', 'required' => 'required'
-									],
-									$ref_author,
-									set_value('id_author', @$id_author)
-								);
-							} ?>
-						</div>
-					</div>
-					<div class="mb-3">
-						<label class="control-label mb-2">Reviewer</label>
-						<div>
-							<?php
-
-							if (!$ref_author) {
-								echo '<div class="alert alert-danger">Data author masih kosong, silakan diisi terlebih dahulu</div>';
-							} else {
-								echo options(
-									[
-										'class' => 'form-control select2', 'name' => 'id_author[]', 'multiple' => 'multiple', 'required' => 'required'
-									],
-									$ref_author,
-									set_value('id_author', @$id_author)
-								);
-							} ?>
-						</div>
-					</div>
-					<div class="mb-3">
-						<label class="control-label mb-2">Type</label>
-						<!-- pastikan value untuk API -->
-						<?php
-						if (!empty($type)) {
-							if ($type) { //true => artikel
-								$type = 'artikel';
-							} else {
-								$type = 'symptomedia';
-							}
-						}
-						?>
-						<div>
-							<select class="form-control form-select" name="type" required>
-								<option class="form-control" name="type" value="artikel">Artikel</option>
-								<option class="form-control" name="type" value="symptomedia">SymptomPedia</option>
-							</select>
-						</div>
-					</div>
-					<div class="mb-3">
-						<label class="control-label mb-2">Tgl. Terbit</label>
-						<?php
-						if (!empty($date)) {
-							if ($date == '0000-00-00 00:00:00') {
-								$date = date('Y-m-d H:i');
-							} else {
-								$date = date('Y-m-d H:i', strtotime($date));
-							}
-						}
-						?>
-						<input class="form-control flatpickr" type="text" name="tgl_terbit" value="<?= set_value('date', @$date) ?>" placeholder="Tgl. Terbit" required />
-					</div>
-					
 				</div>
 			</div>
 			<div class="row mb-3">
 				<div class="col-sm-12">
 					<button type="submit" name="submit" id="btn-submit" value="" class="btn btn-primary">Simpan</button>
-				
+					<input type="hidden" name="id" value="<?= $id_penyakit ?>" />
 					<input type="hidden" name="tab" value="" />
 				</div>
 			</div>

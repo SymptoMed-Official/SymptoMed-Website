@@ -43,7 +43,10 @@ class ValidasiModel extends \App\Models\BaseModel
             }
         }
         return[
-            'penyakit' => $penyakit
+            'penyakit' => $penyakit,
+            'id_penyakit' => $id_penyakit,
+            
+
         ];
     }
 
@@ -66,9 +69,13 @@ class ValidasiModel extends \App\Models\BaseModel
             $data_db['Referensi'] = trim($_POST['Referensi']);
 
             if (!empty($_POST['id'])){
-                $query = $this->db->table('penyakit')->update($data_db, ['id' => $_POST['id']]);
+                $data_db['id_user_update'] = $_SESSION['user']['id_user'];
+                $data_db['tgl_update'] = date('Y-m-d H:i:s');
+                $query = $this->db->table('penyakit')->update($data_db, ['id_penyakit' => $_POST['id']]);
                 $id_penyakit = $_POST['id'];
             } else {
+                $data_db['tgl_create'] = date('Y-m-d H:i:s');
+                $data_db['id_user_create'] = $_SESSION['user']['id_user'];
                 $query = $this->db->table('penyakit')->insert($data_db);
                 $id_penyakit = $this->db->insertID();
             }

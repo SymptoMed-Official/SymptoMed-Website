@@ -95,25 +95,24 @@ class Validasi extends BaseController
 	$this->data['title'] = 'Add Validasi Data ML';
 
 	$message = [];
-	$id_validasi = '';
-	$artikel = [];
+	$id_penyakit = '';
+	$penyakit = [];
 	if (!empty($_POST['submit'])) {
 		$save = $this->model->saveData();
 		$message = $save['message'];
 		if ($message['status'] == 'ok') {
-			$id_validasi = $save['id_penyakit'];
+			$id_penyakit = $save['id_penyakit'];
 			$data['title'] = 'Edit Validasi Data ML';
 		}
 	}
 
-	$set_data = $this->model->setData($id_validasi, $this->whereOwn());
+	$set_data = $this->model->setData($id_penyakit, $this->whereOwn());
 
 	if ($set_data['penyakit']) {
-		foreach ($artikel as $key => $val) {
+		foreach ($penyakit as $key => $val) {
 			$data[$key] = $val;
 		}
 	}
-
 	$this->data = array_merge($this->data, $set_data);
 	$this->data['message'] = $message;
     $this->view("validasi-form.php",$this->data);
